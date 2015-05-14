@@ -29,47 +29,63 @@ public class MainActivity extends ActionBarActivity {
         final Button num8 = (Button) findViewById(R.id.number8);
         final Button num9 = (Button) findViewById(R.id.number9);
 
-        //regular functions
-        final Button point = (Button) findViewById(R.id.button);
+        //controls
         final Button allClear = (Button) findViewById(R.id.ac);
-        final Button divide = (Button) findViewById(R.id.divide);
+
+        //regular expressions
+        final Button add = (Button) findViewById(R.id.plus);
         final Button multiply = (Button) findViewById(R.id.times);
         final Button subtract = (Button) findViewById(R.id.minus);
-        final Button addify = (Button) findViewById(R.id.plus);
+        final Button divide = (Button) findViewById(R.id.divide);
+        final Button decimalpoint = (Button) findViewById(R.id.decimalpoint);
+
+        //calculations
         final Button sum = (Button) findViewById(R.id.equals);
+        final Button percentage = (Button) findViewById(R.id.button4);
+
+        //integers expression could also be made into a switch.
+        final Button negative = (Button) findViewById(R.id.negative);
+        final Button positive = (Button) findViewById(R.id.positive);
+
 
         //scientific functions
 
-        final Button percentage = (Button) findViewById(R.id.button4);
-        final Button negative = (Button) findViewById(R.id.button3);
-        final Button positive = (Button) findViewById(R.id.button2);
 
-        //the following two could be made into a switch like the google calc.
+        //the following two could al well be made into a switch.
         final Button radius = (Button) findViewById(R.id.radius);
         final Button degrees = (Button) findViewById(R.id.degrees);
 
         // -> X!
         final Button factorial = (Button) findViewById(R.id.factorial);
 
-        /*Not sure the supposed function of this. If not math, can be used to switch between functions in
-        scientific mode (when the calc is turned sideways.*/
+        /*Not sure the supposed function of this. Can be used to switch between functions in
+        scientific mode (when the calc is turned sideways). */
         final Button inverse = (Button) findViewById(R.id.lnv);
 
         //
         final Button sine = (Button) findViewById(R.id.sine);
-        final Button ln = (Button) findViewById(R.id.nlog);
-        final Button pi = (Button) findViewById(R.id.pi);
         final Button cos = (Button) findViewById(R.id.cosine);
-        final Button log = (Button) findViewById(R.id.log);
-        final Button e = (Button) findViewById(R.id.e);
         final Button tan = (Button) findViewById(R.id.tangent);
+
+
+        final Button ln = (Button) findViewById(R.id.nlog);//natural log
+
+        final Button pi = (Button) findViewById(R.id.pi);
+
+        final Button log = (Button) findViewById(R.id.log);//log10 ?
+
+        final Button e = (Button) findViewById(R.id.e);
+
         final Button sqrt = (Button) findViewById(R.id.squareroot);
+
         final Button ans = (Button) findViewById(R.id.answer);
+
         final Button exp = (Button) findViewById(R.id.exponent);
+
         final Button xy = (Button) findViewById(R.id.tothepowerof);
 
-        //calc screen. (please double check. My rendering i
-        final TextView text1 = (TextView) findViewById(R.id.textView);
+        //calc screen.
+        final TextView calcScreen = (TextView) findViewById(R.id.calcscreen);
 
     }
 }

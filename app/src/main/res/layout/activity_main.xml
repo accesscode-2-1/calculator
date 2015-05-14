@@ -99,7 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="."
-            android:id="@+id/button"
+            android:id="@+id/decimalpoint"
             android:layout_row="4"
             android:layout_column="0" />
 
@@ -186,13 +186,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Negative"
-            android:id="@+id/button3" />
+            android:id="@+id/negative" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="positive"
-            android:id="@+id/button2" />
+            android:id="@+id/positive" />
     </LinearLayout>
 
     <TextView
@@ -200,7 +200,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
-        android:id="@+id/textView"
+        android:id="@+id/calcscreen"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/linearLayout"

@@ -18,6 +18,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="getButtonText"
             android:text="2"
             android:id="@+id/number2"
             android:layout_alignParentTop="true"
@@ -29,6 +30,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="getButtonText"
             android:text="3"
             android:id="@+id/number3"
             android:layout_alignTop="@+id/number1"
@@ -41,6 +43,7 @@
             android:layout_height="wrap_content"
             android:text="1"
             android:id="@+id/number1"
+            android:onClick="getButtonText"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/number2"
             android:layout_column="0"
@@ -51,12 +54,14 @@
             android:layout_height="wrap_content"
             android:text="4"
             android:id="@+id/number4"
+            android:onClick="getButtonText"
             android:layout_row="1"
             android:layout_column="0" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="getButtonText"
             android:text="5"
             android:id="@+id/number5"
             android:layout_row="1"
@@ -65,6 +70,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="getButtonText"
             android:text="6"
             android:id="@+id/number6"
             android:layout_row="1"
@@ -73,6 +79,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="getButtonText"
             android:text="7"
             android:id="@+id/number7"
             android:layout_row="2"
@@ -81,6 +88,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="getButtonText"
             android:text="8"
             android:id="@+id/number8"
             android:layout_row="2"
@@ -89,6 +97,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="getButtonText"
             android:text="9"
             android:id="@+id/number9"
             android:layout_row="2"
@@ -97,6 +106,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="getButtonText"
             android:text="."
             android:id="@+id/decimalpoint"
             android:layout_row="4"
@@ -105,10 +115,20 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="getButtonText"
             android:text="0"
             android:id="@+id/number0"
             android:layout_row="4"
             android:layout_column="1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AC"
+            android:id="@+id/ac"
+            android:onClick="allClear"
+            android:layout_row="4"
+            android:layout_column="2" />
     </GridLayout>
 
 
@@ -126,6 +146,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="/"
+        android:onClick="getButtonText"
         android:id="@+id/divide"
         android:layout_alignParentBottom="true" />
 
@@ -133,14 +154,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="*"
+        android:onClick="getButtonText"
         android:id="@+id/times"
-        android:layout_alignBaseline="@+id/button2"
-        android:layout_alignBottom="@+id/button2"
+        android:layout_alignBaseline="@+id/positive"
+        android:layout_alignBottom="@+id/positive"
         android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="getButtonText"
         android:text="-"
         android:id="@+id/minus"
         android:layout_below="@+id/times"
@@ -149,6 +172,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="getButtonText"
             android:text="+"
             android:id="@+id/plus" />
 
@@ -156,6 +180,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="="
+            android:onClick="evaluateExpression"
             android:id="@+id/equals" />
 
     </LinearLayout>
@@ -164,27 +189,29 @@
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:id="@+id/overNums"
-        android:layout_below="@+id/calcscreen"
+        android:layout_below="@+id/calcScreen"
         android:layout_alignParentEnd="true">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="%"
+            android:onClick="getButtonText"
             android:id="@+id/button4" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Negative"
+            android:onClick="getButtonText"
             android:id="@+id/negative" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="positive"
+            android:onClick="getButtonText"
             android:id="@+id/positive" />
     </LinearLayout>
 
@@ -192,8 +219,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/calcscreen"
+        android:id="@+id/calcScreen"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/linearLayout"

@@ -15,6 +15,7 @@ import java.math.BigDecimal;
 public class MainActivity extends ActionBarActivity {
 
     private String toBeEvaluated="";
+    private TextView calcScreen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,34 @@ public class MainActivity extends ActionBarActivity {
 
         toBeEvaluated+=button.getText();
 
-        TextView calcScreen=(TextView) findViewById(R.id.calcScreen);
+        calcScreen=(TextView) findViewById(R.id.calcScreen);
+
+        calcScreen.setText(toBeEvaluated);
+
+    }
+
+    public void negButton(View v){
+       if(toBeEvaluated!=null) {
+        if(toBeEvaluated.charAt(1)=='+'){
+            toBeEvaluated.replace('+','-');
+        }else
+            toBeEvaluated = "(-" + toBeEvaluated + ")";
+
+
+        }else{ toBeEvaluated="-";}
+
+        calcScreen.setText(toBeEvaluated);
+    }
+
+    public void posButton(View v){
+    //TODO
+        if(toBeEvaluated!=null) {
+            if(toBeEvaluated.charAt(1)=='-'){
+                toBeEvaluated.replace('-','+');
+            }else
+                toBeEvaluated = "(+" + toBeEvaluated + ")";
+
+        }else{ toBeEvaluated="+";}
 
         calcScreen.setText(toBeEvaluated);
 
@@ -36,18 +64,18 @@ public class MainActivity extends ActionBarActivity {
 
     public void allClear(View v){
         toBeEvaluated="";
-        TextView screen=(TextView) findViewById(R.id.calcScreen);
-        screen.setText(toBeEvaluated);
+        calcScreen=(TextView) findViewById(R.id.calcScreen);
+        calcScreen.setText(toBeEvaluated);
     }
 
 
     public void evaluateExpression(View v){
 
-        //TODO implement ANS
+        //TODO implement ANS 
         //TODO implement ABS
         //TODO Close Parens
         //TODO Switch to Anti's
-        //TODO implement POS and NEG
+        //TODO implement POS and NEG (Madelyn)
         //TODO fix EXP and x^Y
 
         TextView calcScreen = (TextView) findViewById(R.id.calcScreen);

@@ -71,7 +71,7 @@ public class MainActivity extends ActionBarActivity {
 
     public void evaluateExpression(View v){
 
-        //TODO implement ANS 
+        //TODO implement ANS
         //TODO implement ABS
         //TODO Close Parens
         //TODO Switch to Anti's

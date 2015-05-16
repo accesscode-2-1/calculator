@@ -43,14 +43,19 @@ public class MainActivity extends ActionBarActivity {
 
     public void evaluateExpression(View v){
 
-        //TODO implement
+        //TODO implement ANS
+        //TODO implement ABS
+        //TODO Close Parens
+        //TODO Switch to Anti's
+        //TODO implement POS and NEG
+        //TODO fix EXP and x^Y
 
         TextView calcScreen = (TextView) findViewById(R.id.calcScreen);
         calcScreen.setText(toBeEvaluated);
         Expressions expressions = new Expressions(calcScreen.getText().toString());
 
         BigDecimal result= new BigDecimal(String.valueOf(expressions.eval()));
-        calcScreen.setText((result.toString()));
+        calcScreen.setText((result.toPlainString()));
 
 
 

@@ -69,16 +69,19 @@ public class MainActivity extends ActionBarActivity {
 
     public void evaluateExpression(View v){
 
-        //TODO implement ANS (JOHN)(DONE)
+
         //TODO implement ABS (JOHN)
         //TODO Close Parens  (Madelyn)
         //TODO add cancel button
         //TODO Switch to Anti's (Madelyn)
-        //TODO implement POS and NEG (Madelyn)-DONE
+
         //TODO fix EXP and x^Y (THINK)
-        //TODO Error Message(John)
+
+
         //TODO Figure out percent(MAYBE)
+
         //TODO Clear Screen after answer
+
         //TODO fix paren
 
         if(toBeEvaluated.contains("(")){

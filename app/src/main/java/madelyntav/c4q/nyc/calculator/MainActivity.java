@@ -91,8 +91,11 @@ public class MainActivity extends ActionBarActivity {
             BigDecimal result = new BigDecimal(String.valueOf(expressions.eval()));
             calcScreen.setText((result.toPlainString()));
         }catch (EmptyStackException e){
-            calcScreen.setText("exeption");
+            calcScreen.setText("ERROR");
+        } catch (NullPointerException e){
+            calcScreen.setText("ERROR");
         }
+
         ans ="";
 
 

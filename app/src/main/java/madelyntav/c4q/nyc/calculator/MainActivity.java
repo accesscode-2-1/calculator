@@ -85,6 +85,13 @@ public class MainActivity extends ActionBarActivity {
             calcScreen.setText(toBeEvaluated);
         }
     }
+    public void absoluteval(View v){
+            toBeEvaluated = toBeEvaluated.replace('-', ' ');
+            toBeEvaluated = toBeEvaluated.trim();
+            calcScreen.setText(toBeEvaluated);
+
+    }
+
 
 
     private void checkParenthesis() {
@@ -114,6 +121,7 @@ public class MainActivity extends ActionBarActivity {
 
 
 
+
         //TODO Close Parens  (Madelyn)
         //TODO fix parens for SOHCAHTOA
 
@@ -126,6 +134,18 @@ public class MainActivity extends ActionBarActivity {
 
         //TODO Clear Screen after answer
 
+        //TODO Close Parens  (Madelyn)
+        //TODO Switch to Anti's (Madelyn)
+
+        //TODO fix EXP and x^Y (THINK)
+        //TODO Figure out percent(MAYBE)
+        //TODO fix log function
+
+        //TODO Add Textview that shows ans
+
+        //TODO fix paren
+
+
 
 
         try {
@@ -134,11 +154,13 @@ public class MainActivity extends ActionBarActivity {
             Expressions expressions = new Expressions(toBeEvaluated);
             BigDecimal result = new BigDecimal(String.valueOf(expressions.eval()));
             toBeEvaluated=result.toPlainString();
-            calcScreen.setText(toBeEvaluated);
+            calcScreen.setText((toBeEvaluated));
+
+
         }catch (EmptyStackException e){
             calcScreen.setText("Err. Nothing Here, Clear Screen.");
         } catch (NullPointerException e){
-            calcScreen.setText("Err. Invalid input Clear Screen.");
+            calcScreen.setText("Err. Invalid input, Clear Screen.");
         } catch (RuntimeException r){
             calcScreen.setText("You broke me. :( Clear.");
         }

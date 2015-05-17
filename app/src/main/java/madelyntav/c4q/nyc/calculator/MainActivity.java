@@ -10,10 +10,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.math.BigDecimal;
+import java.util.EmptyStackException;
 
 
 public class MainActivity extends ActionBarActivity {
-
+    private String ans ="";
     private String toBeEvaluated="";
     private TextView calcScreen;
 
@@ -66,6 +67,18 @@ public class MainActivity extends ActionBarActivity {
         calcScreen=(TextView) findViewById(R.id.calcScreen);
         calcScreen.setText(toBeEvaluated);
     }
+        public void ans(View v) {
+
+        if ((calcScreen.getText() != "") && ans == "") {
+            Expressions expressions = new Expressions(calcScreen.getText().toString());
+            BigDecimal res= new BigDecimal(String.valueOf(expressions.eval()));
+            ans = ((res.toPlainString()));
+        } else if (ans != "") {
+            toBeEvaluated+=ans;
+            calcScreen.setText(toBeEvaluated);
+        }
+
+    }
 
 
 
@@ -85,13 +98,16 @@ public class MainActivity extends ActionBarActivity {
         if(toBeEvaluated.contains("(")){
             toBeEvaluated=toBeEvaluated+")";
         }
-
-        calcScreen = (TextView) findViewById(R.id.calcScreen);
-        calcScreen.setText(toBeEvaluated);
-        Expressions expressions = new Expressions(calcScreen.getText().toString());
-
-        BigDecimal result= new BigDecimal(String.valueOf(expressions.eval()));
-        calcScreen.setText((result.toPlainString()));
+        try {
+            calcScreen = (TextView) findViewById(R.id.calcScreen);
+            calcScreen.setText(toBeEvaluated);
+            Expressions expressions = new Expressions(calcScreen.getText().toString());
+            BigDecimal result = new BigDecimal(String.valueOf(expressions.eval()));
+            calcScreen.setText((result.toPlainString()));
+        }catch (EmptyStackException e){
+            calcScreen.setText("exeption");
+        }
+        ans ="";
 
 
     }

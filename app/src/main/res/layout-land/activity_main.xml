@@ -317,7 +317,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SIN"
-            android:onClick="getButtonText"
+            android:onClick="Sohcahtoa"
             android:id="@+id/sine"
             android:background="#96ffffff"
             />
@@ -344,7 +344,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="COS"
-            android:onClick="getButtonText"
+            android:onClick="Sohcahtoa"
             android:id="@+id/cosine"
             android:background="#96ffffff"
             />
@@ -372,6 +372,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TAN"
+            android:onClick="Sohcahtoa"
             android:id="@+id/tangent"
             android:background="#96ffffff"
             />

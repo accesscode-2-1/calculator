@@ -226,6 +226,13 @@
             android:onClick="negButton"
             android:id="@+id/negative" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="("
+            android:id="@+id/Openparens"
+            android:onClick="getButtonText"/>
+
 
     </LinearLayout>
 

@@ -18,6 +18,7 @@ public class MainActivity extends ActionBarActivity {
     private String toBeEvaluated = "";
     private TextView calcScreen;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,10 +40,10 @@ public class MainActivity extends ActionBarActivity {
         if (toBeEvaluated.charAt(0) != '-' && toBeEvaluated.charAt(0) != '+') {
             toBeEvaluated = "-" + toBeEvaluated;
         }
-        if (toBeEvaluated.charAt(0) == '-') {
-            toBeEvaluated = toBeEvaluated.replace(toBeEvaluated.charAt(0), '+');
-        } else if (toBeEvaluated.charAt(0) == '+') {
-            toBeEvaluated = toBeEvaluated.replace(toBeEvaluated.charAt(0), '-');
+        else if (toBeEvaluated.charAt(0) == '-') {
+            toBeEvaluated = toBeEvaluated.replace(toBeEvaluated.charAt(0), ' ');
+            toBeEvaluated=toBeEvaluated.trim();
+
         }
         calcScreen.setText(toBeEvaluated);
     }
@@ -52,6 +53,26 @@ public class MainActivity extends ActionBarActivity {
         calcScreen = (TextView) findViewById(R.id.calcScreen);
         calcScreen.setText(toBeEvaluated);
     }
+
+    public void Sohcahtoa(View v) {
+
+        Button button = (Button) findViewById(v.getId());
+
+
+            if (calcScreen.getText() == null) {
+
+                toBeEvaluated = button.getText() + "(";
+
+            } else {
+
+                toBeEvaluated = button.getText() + "(" + toBeEvaluated + ")";
+
+            }
+
+            calcScreen.setText(toBeEvaluated);
+
+        }
+
 
     public void ans(View v) {
 
@@ -66,33 +87,54 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
+    private void checkParenthesis() {
+        int p = 0;
+
+        for (int i = 0; i < toBeEvaluated.length(); i++) {
+            if (toBeEvaluated.charAt(i) == '(') {
+                p++;
+            } else if (toBeEvaluated.charAt(i) == ')') {
+                p--;
+            }
+
+            if (p > 0) {
+                toBeEvaluated += ")";
+            }
+        }
+    }
+
+
+
+
+
 
     public void evaluateExpression(View v){
 
 
-        //TODO implement ABS (JOHN)
+
+
+
         //TODO Close Parens  (Madelyn)
-        //TODO add cancel button
+        //TODO fix parens for SOHCAHTOA
+
+
         //TODO Switch to Anti's (Madelyn)
 
         //TODO fix EXP and x^Y (THINK)
-
 
         //TODO Figure out percent(MAYBE)
 
         //TODO Clear Screen after answer
 
-        //TODO fix paren
 
-        if(toBeEvaluated.contains("(")){
-            toBeEvaluated=toBeEvaluated+")";
-        }
+
         try {
             calcScreen = (TextView) findViewById(R.id.calcScreen);
-            calcScreen.setText(toBeEvaluated);
-            Expressions expressions = new Expressions(calcScreen.getText().toString());
+            toBeEvaluated=calcScreen.getText().toString();
+            Expressions expressions = new Expressions(toBeEvaluated);
             BigDecimal result = new BigDecimal(String.valueOf(expressions.eval()));
-            calcScreen.setText((result.toPlainString()));
+            toBeEvaluated=result.toPlainString();
+            calcScreen.setText(toBeEvaluated);
         }catch (EmptyStackException e){
             calcScreen.setText("Err. Nothing Here, Clear Screen.");
         } catch (NullPointerException e){

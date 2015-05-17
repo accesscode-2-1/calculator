@@ -82,6 +82,7 @@ public class MainActivity extends ActionBarActivity {
 
         //TODO fix EXP and x^Y (THINK)
         //TODO Figure out percent(MAYBE)
+        //TODO fix log function
 
         //TODO Add Textview that shows ans
 

@@ -334,7 +334,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pi"
+            android:text="PI"
             android:onClick="getButtonText"
             android:id="@+id/pi"
             android:background="#96ffffff"

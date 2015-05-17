@@ -94,11 +94,12 @@ public class MainActivity extends ActionBarActivity {
             BigDecimal result = new BigDecimal(String.valueOf(expressions.eval()));
             calcScreen.setText((result.toPlainString()));
         }catch (EmptyStackException e){
-            calcScreen.setText("ERROR");
+            calcScreen.setText("Err. Nothing Here, Clear Screen.");
         } catch (NullPointerException e){
-            calcScreen.setText("ERROR");
+            calcScreen.setText("Err. Invalid input Clear Screen.");
+        } catch (RuntimeException r){
+            calcScreen.setText("You broke me. :( Clear.");
         }
-
         ans ="";
 
 

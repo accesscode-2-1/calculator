@@ -352,7 +352,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="log"
+            android:text="LOG("
             android:onClick="getButtonText"
             android:id="@+id/log"
             android:background="#96ffffff"
@@ -407,7 +407,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="X^Y"
+            android:text="^"
             android:onClick="getButtonText"
             android:id="@+id/tothepowerof"
             android:background="#96ffffff"
@@ -422,6 +422,16 @@
         android:id="@+id/absoluteval"
         android:onClick="absoluteval"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=")"
+        android:onClick="getButtonText"
+        android:id="@+id/parclose"
+        android:layout_above="@+id/absoluteval"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

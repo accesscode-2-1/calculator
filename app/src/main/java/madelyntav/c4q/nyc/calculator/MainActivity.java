@@ -68,15 +68,24 @@ public class MainActivity extends ActionBarActivity {
         calcScreen.setText(toBeEvaluated);
     }
 
+    public void percentChange(View v){
+        Button button=(Button) findViewById(v.getId());
+
+        toBeEvaluated=toBeEvaluated+"%x";
+        calcScreen.setText(toBeEvaluated);
+    }
+
 
     public void evaluateExpression(View v){
 
-        //TODO implement ANS
-        //TODO implement ABS
-        //TODO Close Parens
-        //TODO Switch to Anti's
+        //TODO implement ANS (JOHN)
+        //TODO implement ABS (JOHN)
+        //TODO Close Parens  (Madelyn)
+        //TODO Switch to Anti's (Madelyn)
         //TODO implement POS and NEG (Madelyn)
-        //TODO fix EXP and x^Y
+        //TODO fix EXP and x^Y (THINK)
+        //TODO Error Message(John)
+        //TODO Figure out percent
 
         TextView calcScreen = (TextView) findViewById(R.id.calcScreen);
         calcScreen.setText(toBeEvaluated);

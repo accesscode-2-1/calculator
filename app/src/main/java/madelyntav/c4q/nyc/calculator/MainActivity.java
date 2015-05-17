@@ -35,30 +35,16 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void negButton(View v){
-       if(toBeEvaluated!=null) {
-        if(toBeEvaluated.charAt(1)=='+'){
-            toBeEvaluated.replace('+','-');
-        }else
-            toBeEvaluated = "(-" + toBeEvaluated + ")";
-
-        }else{ toBeEvaluated="-";}
-
+       if(toBeEvaluated.charAt(0)!='-'&&toBeEvaluated.charAt(0)!='+'){
+           toBeEvaluated="-"+toBeEvaluated;
+       }
+       if(toBeEvaluated.charAt(0)=='-'){
+          toBeEvaluated= toBeEvaluated.replace(toBeEvaluated.charAt(0),'+');
+       }
+       else if(toBeEvaluated.charAt(0)=='+'){
+           toBeEvaluated= toBeEvaluated.replace(toBeEvaluated.charAt(0),'-');
+       }
         calcScreen.setText(toBeEvaluated);
-    }
-
-
-    public void posButton(View v){
-
-        if(toBeEvaluated!=null) {
-            if(toBeEvaluated.charAt(1)=='-'){
-                toBeEvaluated.replace('-','+');
-            }else
-                toBeEvaluated = "(+" + toBeEvaluated + ")";
-
-        }else{ toBeEvaluated="+";}
-
-        calcScreen.setText(toBeEvaluated);
-
     }
 
     public void allClear(View v){
@@ -67,18 +53,17 @@ public class MainActivity extends ActionBarActivity {
         calcScreen.setText(toBeEvaluated);
     }
 
-
-
     public void evaluateExpression(View v){
 
-        //TODO implement ANS (JOHN)
+        //TODO implement ANS (JOHN)(DONE)
         //TODO implement ABS (JOHN)
         //TODO Close Parens  (Madelyn)
+        //TODO add cancel button
         //TODO Switch to Anti's (Madelyn)
-        //TODO implement POS and NEG (Madelyn)
+        //TODO implement POS and NEG (Madelyn)-DONE
         //TODO fix EXP and x^Y (THINK)
         //TODO Error Message(John)
-        //TODO Figure out percent
+        //TODO Figure out percent(MAYBE)
         //TODO Clear Screen after answer
         //TODO fix paren
 

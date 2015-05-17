@@ -222,16 +222,11 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Negative"
+            android:text="+/-"
             android:onClick="negButton"
             android:id="@+id/negative" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="positive"
-            android:onClick="posButton"
-            android:id="@+id/positive" />
+
     </LinearLayout>
 
     <TextView

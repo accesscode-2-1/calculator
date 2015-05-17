@@ -245,19 +245,12 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="NEG"
+            android:text="+/-"
             android:onClick="getButtonText"
             android:id="@+id/negative"
             android:background="#96ffffff"/>
 
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="POS"
-            android:onClick="getButtonText"
-            android:id="@+id/positive"
-            android:background="#96ffffff"/>
+
     </LinearLayout>
 
     <TextView

@@ -14,8 +14,8 @@ import java.util.EmptyStackException;
 
 
 public class MainActivity extends ActionBarActivity {
-    private String ans ="";
-    private String toBeEvaluated="";
+    private String ans = "";
+    private String toBeEvaluated = "";
     private TextView calcScreen;
 
     @Override
@@ -24,47 +24,48 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void getButtonText(View v){
-        Button button= (Button) findViewById(v.getId());
+    public void getButtonText(View v) {
+        Button button = (Button) findViewById(v.getId());
 
-        toBeEvaluated+=button.getText();
+        toBeEvaluated += button.getText();
 
-        calcScreen=(TextView) findViewById(R.id.calcScreen);
+        calcScreen = (TextView) findViewById(R.id.calcScreen);
 
         calcScreen.setText(toBeEvaluated);
 
     }
 
-    public void negButton(View v){
-       if(toBeEvaluated.charAt(0)!='-'&&toBeEvaluated.charAt(0)!='+'){
-           toBeEvaluated="-"+toBeEvaluated;
-       }
-       if(toBeEvaluated.charAt(0)=='-'){
-          toBeEvaluated= toBeEvaluated.replace(toBeEvaluated.charAt(0),'+');
-       }
-       else if(toBeEvaluated.charAt(0)=='+'){
-           toBeEvaluated= toBeEvaluated.replace(toBeEvaluated.charAt(0),'-');
-       }
+    public void negButton(View v) {
+        if (toBeEvaluated.charAt(0) != '-' && toBeEvaluated.charAt(0) != '+') {
+            toBeEvaluated = "-" + toBeEvaluated;
+        }
+        if (toBeEvaluated.charAt(0) == '-') {
+            toBeEvaluated = toBeEvaluated.replace(toBeEvaluated.charAt(0), '+');
+        } else if (toBeEvaluated.charAt(0) == '+') {
+            toBeEvaluated = toBeEvaluated.replace(toBeEvaluated.charAt(0), '-');
+        }
         calcScreen.setText(toBeEvaluated);
     }
 
-    public void allClear(View v){
-        toBeEvaluated="";
-        calcScreen=(TextView) findViewById(R.id.calcScreen);
+    public void allClear(View v) {
+        toBeEvaluated = "";
+        calcScreen = (TextView) findViewById(R.id.calcScreen);
         calcScreen.setText(toBeEvaluated);
     }
-        public void ans(View v) {
+
+    public void ans(View v) {
 
         if ((calcScreen.getText() != "") && ans == "") {
             Expressions expressions = new Expressions(calcScreen.getText().toString());
-            BigDecimal res= new BigDecimal(String.valueOf(expressions.eval()));
+            BigDecimal res = new BigDecimal(String.valueOf(expressions.eval()));
             ans = ((res.toPlainString()));
         } else if (ans != "") {
-            toBeEvaluated+=ans;
+            toBeEvaluated += ans;
             calcScreen.setText(toBeEvaluated);
         }
-
     }
+
+
 
     public void evaluateExpression(View v){
 

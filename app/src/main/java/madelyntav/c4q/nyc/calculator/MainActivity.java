@@ -64,22 +64,27 @@ public class MainActivity extends ActionBarActivity {
             calcScreen.setText(toBeEvaluated);
         }
     }
+    public void absoluteval(View v){
+            toBeEvaluated = toBeEvaluated.replace('-', ' ');
+            toBeEvaluated = toBeEvaluated.trim();
+            calcScreen.setText(toBeEvaluated);
+
+    }
 
 
 
 
     public void evaluateExpression(View v){
 
-        //TODO implement ANS (JOHN)(DONE)
-        //TODO implement ABS (JOHN)
+
         //TODO Close Parens  (Madelyn)
-        //TODO add cancel button
         //TODO Switch to Anti's (Madelyn)
-        //TODO implement POS and NEG (Madelyn)-DONE
+
         //TODO fix EXP and x^Y (THINK)
-        //TODO Error Message(John)
         //TODO Figure out percent(MAYBE)
-        //TODO Clear Screen after answer
+
+        //TODO Add Textview that shows ans
+
         //TODO fix paren
 
         if(toBeEvaluated.contains("(")){
@@ -90,11 +95,13 @@ public class MainActivity extends ActionBarActivity {
             calcScreen.setText(toBeEvaluated);
             Expressions expressions = new Expressions(calcScreen.getText().toString());
             BigDecimal result = new BigDecimal(String.valueOf(expressions.eval()));
-            calcScreen.setText((result.toPlainString()));
+            toBeEvaluated=result.toPlainString();
+            calcScreen.setText((toBeEvaluated));
+
         }catch (EmptyStackException e){
             calcScreen.setText("Err. Nothing Here, Clear Screen.");
         } catch (NullPointerException e){
-            calcScreen.setText("Err. Invalid input Clear Screen.");
+            calcScreen.setText("Err. Invalid input, Clear Screen.");
         } catch (RuntimeException r){
             calcScreen.setText("You broke me. :( Clear.");
         }

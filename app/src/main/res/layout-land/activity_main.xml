@@ -228,9 +228,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/gridLayout"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/overNums">
+        android:id="@+id/overNums"
+        android:layout_alignTop="@+id/linearLayout"
+        android:layout_alignParentEnd="true">
 
         <Button
             style="?android:attr/buttonStyleSmall"

@@ -422,6 +422,7 @@
         android:text="ABS"
         android:id="@+id/absolutEval"
         android:onClick="absolutEval"
+        android:background="#96ffffff"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
@@ -429,10 +430,11 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=")"
-        android:onClick="getButtonText"
+        android:text="("
+        android:background="#96ffffff"
+        android:onClick="openAndCloseParens"
         android:id="@+id/parclose"
-        android:layout_above="@+id/absoluteval"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/calcScreen"
+        android:layout_toStartOf="@+id/linearLayout" />
 
 </RelativeLayout>

@@ -138,16 +138,40 @@ public class MainActivity extends ActionBarActivity {
             toBeEvaluated += ")";
 
         }
+
         calcScreen.setText(toBeEvaluated);
     }
 
 
+    public void openAndCloseParens(View v) {
+        int p = 0;
+        if (toBeEvaluated == null) {
+            toBeEvaluated = "(";
+        }
+        if (toBeEvaluated == "") {
+            toBeEvaluated = "(";
+        } else {
+            for (int i = 0; i < toBeEvaluated.length(); i++) {
+                if (toBeEvaluated.charAt(i) == '(') {
+                    p++;
+                } else if (toBeEvaluated.charAt(i) == ')') {
+                    p--;
+
+                }
+
+            }
+            if (p > 0) {
+                toBeEvaluated += ")";
+
+            } else {
+                toBeEvaluated += "(";
+            }
 
 
-
-
-
-
+        }
+        TextView calcS=(TextView) findViewById(R.id.calcScreen);
+        calcS.setText(toBeEvaluated);
+    }
 
 
     public void evaluateExpression(View v){

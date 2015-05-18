@@ -17,23 +17,25 @@ public class MainActivity extends ActionBarActivity {
     private String ans = "";
     private String toBeEvaluated = "";
     private TextView calcScreen;
+    boolean resultGiven = false;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        calcScreen = (TextView) findViewById(R.id.calcScreen);
+
+        calcScreen.getText();
+
     }
 
     public void getButtonText(View v) {
         Button button = (Button) findViewById(v.getId());
-
-        toBeEvaluated += button.getText();
-
         calcScreen = (TextView) findViewById(R.id.calcScreen);
-
+        toBeEvaluated += button.getText();
         calcScreen.setText(toBeEvaluated);
-
     }
 
     public void negButton(View v) {
@@ -118,10 +120,6 @@ public class MainActivity extends ActionBarActivity {
     public void evaluateExpression(View v){
 
 
-
-
-
-
         //TODO Close Parens  (Madelyn)
         //TODO fix parens for SOHCAHTOA
 
@@ -130,20 +128,12 @@ public class MainActivity extends ActionBarActivity {
 
         //TODO fix EXP and x^Y (THINK)
 
-        //TODO Figure out percent(MAYBE)
-
         //TODO Clear Screen after answer
 
-        //TODO Close Parens  (Madelyn)
-        //TODO Switch to Anti's (Madelyn)
-
-        //TODO fix EXP and x^Y (THINK)
         //TODO Figure out percent(MAYBE)
-        //TODO fix log function
+
 
         //TODO Add Textview that shows ans
-
-        //TODO fix paren
 
 
 
@@ -155,8 +145,7 @@ public class MainActivity extends ActionBarActivity {
             BigDecimal result = new BigDecimal(String.valueOf(expressions.eval()));
             toBeEvaluated=result.toPlainString();
             calcScreen.setText((toBeEvaluated));
-
-
+            resultGiven = true;
         }catch (EmptyStackException e){
             calcScreen.setText("Err. Nothing Here, Clear Screen.");
         } catch (NullPointerException e){
@@ -165,6 +154,11 @@ public class MainActivity extends ActionBarActivity {
             calcScreen.setText("You broke me. :( Clear.");
         }
         ans ="";
+
+
+
+
+
 
 
     }

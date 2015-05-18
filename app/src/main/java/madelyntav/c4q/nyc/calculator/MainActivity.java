@@ -57,19 +57,24 @@ public class MainActivity extends ActionBarActivity {
     public void Sohcahtoa(View v) {
 
         Button button = (Button) findViewById(v.getId());
+        TextView calcS=(TextView) findViewById(R.id.calcScreen);
 
-
-            if (calcScreen.getText() == null) {
+            if (calcScreen == null) {
 
                 toBeEvaluated = button.getText() + "(";
 
-            } else {
 
-                toBeEvaluated = button.getText() + "(" + toBeEvaluated + ")";
+                calcS.setText(toBeEvaluated);
+            } else if (calcScreen.getText()==""){
+                toBeEvaluated = button.getText() + "(";
 
             }
 
-            calcScreen.setText(toBeEvaluated);
+            else
+
+                toBeEvaluated = button.getText() + "(" + toBeEvaluated + ")";
+
+            calcS.setText(toBeEvaluated);
 
         }
 
@@ -92,7 +97,6 @@ public class MainActivity extends ActionBarActivity {
             Expressions expressions = new Expressions(toBeEvaluated);
             BigDecimal result = new BigDecimal(String.valueOf(expressions.eval()));
             toBeEvaluated=result.toPlainString();
-            //calcScreen.setText((toBeEvaluated));
 
             if (toBeEvaluated.charAt(0) != '-' && toBeEvaluated.charAt(0) != '+') {
                 toBeEvaluated = "-" + toBeEvaluated;
@@ -118,10 +122,6 @@ public class MainActivity extends ActionBarActivity {
 
     }
 
-
-
-
-
     private void checkParenthesis() {
         int p = 0;
 
@@ -130,13 +130,20 @@ public class MainActivity extends ActionBarActivity {
                 p++;
             } else if (toBeEvaluated.charAt(i) == ')') {
                 p--;
-            }
 
-            if (p > 0) {
-                toBeEvaluated += ")";
+                }
+
             }
+        if (p > 0) {
+            toBeEvaluated += ")";
+
         }
+        calcScreen.setText(toBeEvaluated);
     }
+
+
+
+
 
 
 
@@ -147,12 +154,8 @@ public class MainActivity extends ActionBarActivity {
 
 
 
-
-
-
         //TODO Close Parens  (Madelyn)
         //TODO fix parens for SOHCAHTOA
-
 
         //TODO Switch to Anti's (Madelyn)
 
@@ -177,6 +180,9 @@ public class MainActivity extends ActionBarActivity {
 
 
         try {
+
+            checkParenthesis();
+
             calcScreen = (TextView) findViewById(R.id.calcScreen);
             toBeEvaluated=calcScreen.getText().toString();
             Expressions expressions = new Expressions(toBeEvaluated);

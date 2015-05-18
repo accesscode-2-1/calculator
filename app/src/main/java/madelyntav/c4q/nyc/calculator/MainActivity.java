@@ -85,12 +85,40 @@ public class MainActivity extends ActionBarActivity {
             calcScreen.setText(toBeEvaluated);
         }
     }
-    public void absoluteval(View v){
-            toBeEvaluated = toBeEvaluated.replace('-', ' ');
-            toBeEvaluated = toBeEvaluated.trim();
+    public void absolutEval(View v){
+        try {
+            calcScreen = (TextView) findViewById(R.id.calcScreen);
+            toBeEvaluated=calcScreen.getText().toString();
+            Expressions expressions = new Expressions(toBeEvaluated);
+            BigDecimal result = new BigDecimal(String.valueOf(expressions.eval()));
+            toBeEvaluated=result.toPlainString();
+            //calcScreen.setText((toBeEvaluated));
+
+            if (toBeEvaluated.charAt(0) != '-' && toBeEvaluated.charAt(0) != '+') {
+                toBeEvaluated = "-" + toBeEvaluated;
+            }
+            else if (toBeEvaluated.charAt(0) == '-') {
+                toBeEvaluated = toBeEvaluated.replace(toBeEvaluated.charAt(0), ' ');
+                toBeEvaluated=toBeEvaluated.trim();
+
+            }
+
             calcScreen.setText(toBeEvaluated);
 
+
+        }catch (EmptyStackException e){
+            calcScreen.setText("Err. Nothing Here, Clear Screen.");
+        } catch (NullPointerException e){
+            calcScreen.setText("Err. Invalid input, Clear Screen.");
+        } catch (RuntimeException r){
+            calcScreen.setText("You broke me. :( Clear.");
+        }
+        ans ="";
+
+
     }
+
+
 
 
 

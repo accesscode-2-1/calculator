@@ -26,7 +26,6 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         calcScreen = (TextView) findViewById(R.id.calcScreen);
-
         calcScreen.getText();
 
     }
@@ -184,8 +183,6 @@ public class MainActivity extends ActionBarActivity {
         //TODO fix parens for SOHCAHTOA
 
         //TODO Switch to Anti's (Madelyn)
-
-        //TODO fix EXP and x^Y (THINK)
 
         //TODO Clear Screen after answer
 

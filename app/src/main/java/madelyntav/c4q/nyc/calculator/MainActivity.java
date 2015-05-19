@@ -154,6 +154,9 @@ public class MainActivity extends ActionBarActivity {
         showOnScreen = toBeEvaluated;
         calcScreen = (TextView) findViewById(R.id.calcScreen);
         calcScreen.setText(toBeEvaluated);
+        ans="";
+        ansview=(TextView) findViewById(R.id.anstxtview);
+        ansview.setText(ans);
     }
 
 
@@ -274,6 +277,11 @@ public class MainActivity extends ActionBarActivity {
             toBeEvaluated = result.toPlainString();
 
             calcScreen.setText((toBeEvaluated));
+
+            ans=toBeEvaluated;
+            ansview=(TextView) findViewById(R.id.anstxtview);
+            ansview.setText(ans);
+
         } catch (EmptyStackException e) {
             calcScreen.setText("Err. Nothing Here, Clear Screen.");
         } catch (NullPointerException e) {

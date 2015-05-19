@@ -17,7 +17,6 @@ public class MainActivity extends ActionBarActivity {
     private String toBeEvaluated="";
     private String showOnScreen=" ";
     private TextView calcScreen;
-    boolean resultGiven = false;
 
 
     @Override
@@ -37,7 +36,16 @@ public class MainActivity extends ActionBarActivity {
 
             if (showOnScreen != null) {
                 if (showOnScreen.charAt(showOnScreen.length()-1) == '=') {
-                    if (buttonText.equals("1") || buttonText.equals("2") || buttonText.equals("3") || buttonText.equals("4") || buttonText.equals("5") || buttonText.equals("6") || buttonText.equals("7") || buttonText.equals("8") || buttonText.equals("9") || buttonText.equals("0")) {
+                    if (buttonText.equals("1") ||
+                            buttonText.equals("2") ||
+                            buttonText.equals("3") ||
+                            buttonText.equals("4") ||
+                            buttonText.equals("5") ||
+                            buttonText.equals("6") ||
+                            buttonText.equals("7") ||
+                            buttonText.equals("8") ||
+                            buttonText.equals("9") ||
+                            buttonText.equals("0")) {
                         toBeEvaluated = buttonText;
                         showOnScreen=buttonText;
                     }
@@ -224,7 +232,6 @@ public class MainActivity extends ActionBarActivity {
 
         //TODO Figure out percent(MAYBE)
 
-
         //TODO Save Screen if turned
 
         //TODO Add Textview that shows ans
@@ -251,7 +258,6 @@ public class MainActivity extends ActionBarActivity {
             toBeEvaluated=result.toPlainString();
 
             calcScreen.setText((toBeEvaluated));
-            resultGiven = true;
         }catch (EmptyStackException e){
             calcScreen.setText("Err. Nothing Here, Clear Screen.");
         } catch (NullPointerException e){

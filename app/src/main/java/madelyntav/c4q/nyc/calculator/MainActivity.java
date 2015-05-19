@@ -13,9 +13,9 @@ import java.util.EmptyStackException;
 
 
 public class MainActivity extends ActionBarActivity {
-    private String ans = "";
+    private String ans ="";
     private String toBeEvaluated="";
-    private String showOnScreen=" ";
+    private String showOnScreen="";
     private TextView calcScreen;
     private TextView ansview;
 
@@ -51,6 +51,8 @@ public class MainActivity extends ActionBarActivity {
                             buttonText.equals("0")) {
                         toBeEvaluated = buttonText;
                         showOnScreen=buttonText;
+                        showOnScreen.trim();
+                        toBeEvaluated.trim();
                     }
 
                 }
@@ -91,13 +93,16 @@ public class MainActivity extends ActionBarActivity {
         Button button = (Button) findViewById(v.getId());
         TextView calcS=(TextView) findViewById(R.id.calcScreen);
 
-        if (calcScreen == null) {
+        showOnScreen.trim();
+
+        if (showOnScreen == null) {
 
             toBeEvaluated = button.getText() + "(";
 
             calcS.setText(toBeEvaluated);
 
-        } else if (calcScreen.getText()==""){
+        } else if (showOnScreen.equals("")){
+            //showOnScreen.trim();
             toBeEvaluated = button.getText() + "(";
 
         }
@@ -106,7 +111,10 @@ public class MainActivity extends ActionBarActivity {
 
             toBeEvaluated = button.getText() + "(" + toBeEvaluated + ")";
 
-        calcS.setText(toBeEvaluated);
+
+        showOnScreen=toBeEvaluated;
+
+        calcS.setText(showOnScreen);
 
     }
 
@@ -124,6 +132,7 @@ public class MainActivity extends ActionBarActivity {
 
     public void allClear(View v) {
         toBeEvaluated = "";
+        showOnScreen=toBeEvaluated;
         calcScreen = (TextView) findViewById(R.id.calcScreen);
         calcScreen.setText(toBeEvaluated);
     }
@@ -140,6 +149,7 @@ public class MainActivity extends ActionBarActivity {
             ansview.setText(ans);
         } else if (ans != "") {
             toBeEvaluated += ans;
+
             calcScreen.setText(toBeEvaluated);
         }
     }
@@ -271,12 +281,6 @@ public class MainActivity extends ActionBarActivity {
         }
         ans ="";
         ansview.setText(ans);
-
-
-
-
-
-
 
     }
 

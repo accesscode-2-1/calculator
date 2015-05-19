@@ -17,6 +17,7 @@ public class MainActivity extends ActionBarActivity {
     private String toBeEvaluated="";
     private String showOnScreen=" ";
     private TextView calcScreen;
+    private TextView ansview;
 
 
     @Override
@@ -25,7 +26,9 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         calcScreen = (TextView) findViewById(R.id.calcScreen);
+        ansview = (TextView) findViewById(R.id.anstxtview);
         calcScreen.getText();
+
 
     }
 
@@ -134,6 +137,7 @@ public class MainActivity extends ActionBarActivity {
             Expressions expressions = new Expressions(calcScreen.getText().toString());
             BigDecimal res = new BigDecimal(String.valueOf(expressions.eval()));
             ans = ((res.toPlainString()));
+            ansview.setText(ans);
         } else if (ans != "") {
             toBeEvaluated += ans;
             calcScreen.setText(toBeEvaluated);
@@ -266,6 +270,7 @@ public class MainActivity extends ActionBarActivity {
             calcScreen.setText("You broke me. :( Clear.");
         }
         ans ="";
+        ansview.setText(ans);
 
 
 

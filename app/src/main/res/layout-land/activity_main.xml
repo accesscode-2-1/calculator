@@ -285,7 +285,8 @@
             android:onClick="getButtonText"
             android:id="@+id/log"
             android:background="#96ffffff"
-            />
+            android:layout_row="0"
+            android:layout_column="0" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -295,18 +296,8 @@
             android:onClick="Sohcahtoa"
             android:id="@+id/sine"
             android:background="#96ffffff"
-            />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ASIN("
-            android:onClick="getButtonText"
-            android:id="@+id/asin"
-            android:background="#96ffffff"
-
-            />
+            android:layout_row="0"
+            android:layout_column="1" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -316,7 +307,8 @@
             android:onClick="getButtonText"
             android:id="@+id/radius"
             android:background="#96ffffff"
-            />
+            android:layout_row="0"
+            android:layout_column="2" />
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
@@ -325,7 +317,19 @@
             android:onClick="getButtonText"
             android:id="@+id/degrees"
             android:background="#96ffffff"
-            />
+            android:layout_row="0"
+            android:layout_column="3" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="^"
+            android:onClick="getButtonText"
+            android:id="@+id/tothepowerof"
+            android:background="#96ffffff"
+            android:layout_row="0"
+            android:layout_column="4" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -335,7 +339,8 @@
             android:onClick="getButtonText"
             android:id="@+id/nlog"
             android:background="#96ffffff"
-            />
+            android:layout_row="1"
+            android:layout_column="0" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -345,17 +350,8 @@
             android:onClick="Sohcahtoa"
             android:id="@+id/cosine"
             android:background="#96ffffff"
-            />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ACOS("
-            android:onClick="getButtonText"
-            android:id="@+id/acos"
-            android:background="#96ffffff"
-            />
+            android:layout_row="1"
+            android:layout_column="1" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -365,7 +361,8 @@
             android:onClick="getButtonText"
             android:id="@+id/pi"
             android:background="#96ffffff"
-            />
+            android:layout_row="1"
+            android:layout_column="2" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -376,7 +373,21 @@
             android:id="@+id/e"
             android:background="#96ffffff"
 
-            />
+            android:layout_row="1"
+            android:layout_column="3" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="phi"
+            android:id="@+id/phi"
+            android:onClick="getButtonText"
+            android:background="#96ffffff"
+            android:layout_below="@+id/absolutEval"
+            android:layout_toEndOf="@+id/gridLayout2"
+            android:layout_row="1"
+            android:layout_column="4" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -386,7 +397,8 @@
             android:onClick="getButtonText"
             android:id="@+id/squareroot"
             android:background="#96ffffff"
-            />
+            android:layout_row="2"
+            android:layout_column="0" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -396,27 +408,8 @@
             android:onClick="Sohcahtoa"
             android:id="@+id/tangent"
             android:background="#96ffffff"
-            />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ATAN("
-            android:onClick="getButtonText"
-            android:id="@+id/atan"
-            android:background="#96ffffff"
-            />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="^"
-            android:onClick="getButtonText"
-            android:id="@+id/tothepowerof"
-            android:background="#96ffffff"
-            />
+            android:layout_row="2"
+            android:layout_column="1" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -427,19 +420,23 @@
             android:id="@+id/answer"
             android:background="#96ffffff"
 
-            />
-    </GridLayout>
+            android:layout_row="2"
+            android:layout_column="2" />
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ABS"
-        android:id="@+id/absolutEval"
-        android:onClick="absolutEval"
-        android:background="#96ffffff"
-        android:layout_alignTop="@+id/gridLayout2"
-        android:layout_toEndOf="@+id/gridLayout2" />
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ABS"
+            android:id="@+id/absolutEval"
+            android:onClick="absolutEval"
+            android:background="#96ffffff"
+            android:layout_alignTop="@+id/gridLayout2"
+            android:layout_toEndOf="@+id/gridLayout2"
+            android:layout_row="2"
+            android:layout_column="3" />
+
+    </GridLayout>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -452,15 +449,16 @@
         android:layout_alignTop="@+id/overNums"
         android:layout_toStartOf="@+id/overNums" />
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="phi"
-        android:id="@+id/phi"
-        android:onClick="getButtonText"
-        android:background="#96ffffff"
-        android:layout_below="@+id/absolutEval"
-        android:layout_toEndOf="@+id/gridLayout2" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=""
+        android:id="@+id/anstxtview"
+        android:background="@drawable/customborder"
+        android:backgroundTint="#c463b4ff"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/gridLayout2"
+        android:layout_alignEnd="@+id/gridLayout2" />
 
 </RelativeLayout>

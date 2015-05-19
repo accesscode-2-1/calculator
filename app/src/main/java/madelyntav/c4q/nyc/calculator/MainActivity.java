@@ -256,9 +256,6 @@ public class MainActivity extends ActionBarActivity {
 
     public void evaluateExpression(View v) {
 
-
-        //TODO fix Antis(John)
-
         //TODO Add TextView that shows ans and Sync to get it working
 
         try {

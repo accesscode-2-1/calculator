@@ -346,9 +346,9 @@
 
         <Button
             style="?android:attr/buttonStyleSmall"
-            android:text="ACOS"
+            android:text="ACOS("
             android:id="@+id/acos"
-            android:onClick="Sohcahtoa"
+            android:onClick="getButtonText"
             android:background="#96ffffff"
             android:layout_row="1"
             android:layout_column="2"

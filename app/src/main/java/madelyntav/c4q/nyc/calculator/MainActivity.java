@@ -39,7 +39,7 @@ public class MainActivity extends ActionBarActivity {
                 if (showOnScreen.charAt(showOnScreen.length()-1) == '=') {
                     if (buttonText.equals("1") || buttonText.equals("2") || buttonText.equals("3") || buttonText.equals("4") || buttonText.equals("5") || buttonText.equals("6") || buttonText.equals("7") || buttonText.equals("8") || buttonText.equals("9") || buttonText.equals("0")) {
                         toBeEvaluated = buttonText;
-                        //showOnScreen=buttonText;
+                        showOnScreen=buttonText;
                     }
 
                 }

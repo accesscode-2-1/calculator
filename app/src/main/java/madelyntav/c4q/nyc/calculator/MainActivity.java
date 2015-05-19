@@ -8,14 +8,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import java.math.BigDecimal;
 import java.util.EmptyStackException;
 
 
 public class MainActivity extends ActionBarActivity {
     private String ans = "";
-    private String toBeEvaluated = "";
+    private String toBeEvaluated="";
+    private String showOnScreen=" ";
     private TextView calcScreen;
 
 
@@ -28,11 +28,68 @@ public class MainActivity extends ActionBarActivity {
     public void getButtonText(View v) {
         Button button = (Button) findViewById(v.getId());
 
-        toBeEvaluated += button.getText();
+        String buttonText = button.getText().toString();
+
+            if (showOnScreen != null) {
+                if (showOnScreen.charAt(showOnScreen.length()-1) == '=') {
+                    if (buttonText.equals("1") || buttonText.equals("2") || buttonText.equals("3") || buttonText.equals("4") || buttonText.equals("5") || buttonText.equals("6") || buttonText.equals("7") || buttonText.equals("8") || buttonText.equals("9") || buttonText.equals("0")) {
+                        toBeEvaluated = buttonText;
+                        //showOnScreen=buttonText;
+                    }
+
+                }
+                else{toBeEvaluated += buttonText.toString();}
+            }
+
+
 
         calcScreen = (TextView) findViewById(R.id.calcScreen);
 
         calcScreen.setText(toBeEvaluated);
+        }
+
+    public void getOperators(View v){
+
+        Button button=(Button) findViewById(v.getId());
+
+        calcScreen=(TextView) findViewById(R.id.calcScreen);
+
+        if((toBeEvaluated ==null) || (toBeEvaluated =="")) {
+
+            toBeEvaluated+="0"+button.getText().toString();
+            showOnScreen+=toBeEvaluated;
+
+        }
+        else
+            toBeEvaluated += button.getText().toString();
+
+
+            showOnScreen=button.getText().toString();
+
+            calcScreen.setText(showOnScreen);
+    }
+
+    public void Sohcahtoa(View v) {
+
+        Button button = (Button) findViewById(v.getId());
+        TextView calcS=(TextView) findViewById(R.id.calcScreen);
+
+        if (calcScreen == null) {
+
+            toBeEvaluated = button.getText() + "(";
+
+            calcS.setText(toBeEvaluated);
+
+        } else if (calcScreen.getText()==""){
+            toBeEvaluated = button.getText() + "(";
+
+        }
+
+        else
+
+            toBeEvaluated = button.getText() + "(" + toBeEvaluated + ")";
+
+        calcS.setText(toBeEvaluated);
 
     }
 
@@ -54,29 +111,7 @@ public class MainActivity extends ActionBarActivity {
         calcScreen.setText(toBeEvaluated);
     }
 
-    public void Sohcahtoa(View v) {
 
-        Button button = (Button) findViewById(v.getId());
-        TextView calcS=(TextView) findViewById(R.id.calcScreen);
-
-            if (calcScreen == null) {
-
-                toBeEvaluated = button.getText() + "(";
-
-
-                calcS.setText(toBeEvaluated);
-            } else if (calcScreen.getText()==""){
-                toBeEvaluated = button.getText() + "(";
-
-            }
-
-            else
-
-                toBeEvaluated = button.getText() + "(" + toBeEvaluated + ")";
-
-            calcS.setText(toBeEvaluated);
-
-        }
 
 
     public void ans(View v) {
@@ -166,40 +201,22 @@ public class MainActivity extends ActionBarActivity {
             } else {
                 toBeEvaluated += "(";
             }
-
-
         }
         TextView calcS=(TextView) findViewById(R.id.calcScreen);
         calcS.setText(toBeEvaluated);
     }
 
-
     public void evaluateExpression(View v){
 
-
-
-        //TODO Close Parens  (Madelyn)
-        //TODO fix parens for SOHCAHTOA
-
         //TODO Switch to Anti's (Madelyn)
-
-        //TODO fix EXP and x^Y (THINK)
-
-        //TODO Figure out percent(MAYBE)
 
         //TODO Clear Screen after answer
 
-        //TODO Close Parens  (Madelyn)
-        //TODO Switch to Anti's (Madelyn)
-
-        //TODO fix EXP and x^Y (THINK)
         //TODO Figure out percent(MAYBE)
-        //TODO fix log function
 
         //TODO Add Textview that shows ans
 
-        //TODO fix paren
-
+        //TODO Save Screen if turned
 
 
 
@@ -207,11 +224,19 @@ public class MainActivity extends ActionBarActivity {
 
             checkParenthesis();
 
-            calcScreen = (TextView) findViewById(R.id.calcScreen);
-            toBeEvaluated=calcScreen.getText().toString();
+            //calcScreen = (TextView) findViewById(R.id.calcScreen);
+           // toBeEvaluated=calcScreen.getText().toString();
+            Button button=(Button) findViewById(v.getId());
+
+//            toBeEvaluated+=button.getText();
+            showOnScreen+=button.getText();
+            toBeEvaluated.toString();
+
             Expressions expressions = new Expressions(toBeEvaluated);
             BigDecimal result = new BigDecimal(String.valueOf(expressions.eval()));
+
             toBeEvaluated=result.toPlainString();
+
             calcScreen.setText((toBeEvaluated));
 
 

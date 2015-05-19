@@ -17,32 +17,36 @@ import java.util.EmptyStackException;
 
 public class MainActivity extends ActionBarActivity {
     private String ans = "";
-    private String toBeEvaluated = "";
+    private String toBeEvaluated ="";
     private String showOnScreen = " ";
     private TextView calcScreen;
+    private TextView ansview;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        calcScreen = (TextView) findViewById(R.id.calcScreen);
 
         if( savedInstanceState != null ) {
             Toast.makeText(this, savedInstanceState.getString("toBeEvaluated"), Toast.LENGTH_LONG).show();
-            calcScreen = (TextView) findViewById(R.id.calcScreen);
+
             calcScreen.setText(savedInstanceState.getString("toBeEvaluated"));
             toBeEvaluated=savedInstanceState.getString("toBeEvaluated");
         }
 
+        calcScreen.setText(toBeEvaluated);
 
-        //calcScreen.getText();
     }
 
     public void getButtonText(View v) {
         Button button = (Button) findViewById(v.getId());
 
         String buttonText = button.getText().toString();
-
+        if(showOnScreen.equals(null)){
+            showOnScreen=buttonText;
+        }
         if (showOnScreen != null) {
             if (showOnScreen.charAt(showOnScreen.length() - 1) == '=') {
                 if (buttonText.equals("1") ||
@@ -97,7 +101,7 @@ public class MainActivity extends ActionBarActivity {
         Button button = (Button) findViewById(v.getId());
         TextView calcS = (TextView) findViewById(R.id.calcScreen);
 
-        showOnScreen.trim();
+
 
         if (showOnScreen == null) {
 
@@ -105,8 +109,8 @@ public class MainActivity extends ActionBarActivity {
 
             calcS.setText(toBeEvaluated);
 
-        } else if (showOnScreen.equals("")) {
-            //showOnScreen.trim();
+        } else if (showOnScreen.equals("")||showOnScreen.equals(" ")) {
+            showOnScreen.trim();
             toBeEvaluated = button.getText() + "(";
 
         } else
@@ -132,7 +136,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void allClear(View v) {
-        toBeEvaluated = "";
+        toBeEvaluated = " ";
         showOnScreen = toBeEvaluated;
         calcScreen = (TextView) findViewById(R.id.calcScreen);
         calcScreen.setText(toBeEvaluated);
@@ -145,6 +149,7 @@ public class MainActivity extends ActionBarActivity {
             Expressions expressions = new Expressions(calcScreen.getText().toString());
             BigDecimal res = new BigDecimal(String.valueOf(expressions.eval()));
             ans = ((res.toPlainString()));
+            ansview.setText(ans);
         } else if (ans != "") {
             toBeEvaluated += ans;
 
@@ -251,11 +256,8 @@ public class MainActivity extends ActionBarActivity {
 
             checkParenthesis();
 
-            //calcScreen = (TextView) findViewById(R.id.calcScreen);
-            // toBeEvaluated=calcScreen.getText().toString();
             Button button = (Button) findViewById(v.getId());
 
-//          toBeEvaluated+=button.getText();
             showOnScreen += button.getText();
             toBeEvaluated.toString();
 
@@ -272,10 +274,11 @@ public class MainActivity extends ActionBarActivity {
         } catch (RuntimeException r) {
             calcScreen.setText("You broke me. :( Clear.");
         }
-        ans = "";
 
+
+//        ans = "";
+//        ansview.setText(ans);
     }
-
 
     @Override
     public void onSaveInstanceState(Bundle outState){

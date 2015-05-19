@@ -190,11 +190,11 @@ public class MainActivity extends ActionBarActivity {
 
 
         } catch (EmptyStackException e) {
-            calcScreen.setText("Err. Nothing Here, Clear Screen.");
+            calcScreen.setText("Err. Nothing To Calculate");
         } catch (NullPointerException e) {
             calcScreen.setText("Err. Invalid input, Clear Screen.");
         } catch (RuntimeException r) {
-            calcScreen.setText("You broke me. :( Clear.");
+            calcScreen.setText("Error");
         }
         ans = "";
 

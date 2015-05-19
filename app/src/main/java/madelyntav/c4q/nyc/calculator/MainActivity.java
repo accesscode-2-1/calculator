@@ -13,9 +13,9 @@ import java.util.EmptyStackException;
 
 
 public class MainActivity extends ActionBarActivity {
-    private String ans = "";
+    private String ans ="";
     private String toBeEvaluated="";
-    private String showOnScreen=" ";
+    private String showOnScreen="";
     private TextView calcScreen;
 
 
@@ -48,6 +48,8 @@ public class MainActivity extends ActionBarActivity {
                             buttonText.equals("0")) {
                         toBeEvaluated = buttonText;
                         showOnScreen=buttonText;
+                        showOnScreen.trim();
+                        toBeEvaluated.trim();
                     }
 
                 }
@@ -88,13 +90,16 @@ public class MainActivity extends ActionBarActivity {
         Button button = (Button) findViewById(v.getId());
         TextView calcS=(TextView) findViewById(R.id.calcScreen);
 
+        showOnScreen.trim();
+
         if (showOnScreen == null) {
 
             toBeEvaluated = button.getText() + "(";
 
             calcS.setText(toBeEvaluated);
 
-        } else if (showOnScreen.equals(" ")){
+        } else if (showOnScreen.equals("")){
+            //showOnScreen.trim();
             toBeEvaluated = button.getText() + "(";
 
         }
@@ -124,6 +129,7 @@ public class MainActivity extends ActionBarActivity {
 
     public void allClear(View v) {
         toBeEvaluated = "";
+        showOnScreen=toBeEvaluated;
         calcScreen = (TextView) findViewById(R.id.calcScreen);
         calcScreen.setText(toBeEvaluated);
     }
@@ -139,6 +145,7 @@ public class MainActivity extends ActionBarActivity {
             ans = ((res.toPlainString()));
         } else if (ans != "") {
             toBeEvaluated += ans;
+
             calcScreen.setText(toBeEvaluated);
         }
     }
@@ -269,12 +276,6 @@ public class MainActivity extends ActionBarActivity {
             calcScreen.setText("You broke me. :( Clear.");
         }
         ans ="";
-
-
-
-
-
-
 
     }
 

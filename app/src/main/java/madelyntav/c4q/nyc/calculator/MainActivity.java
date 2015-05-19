@@ -27,15 +27,15 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         calcScreen = (TextView) findViewById(R.id.calcScreen);
+        ansview = (TextView) findViewById(R.id.anstxtview);
 
         if( savedInstanceState != null ) {
-            Toast.makeText(this, savedInstanceState.getString("toBeEvaluated"), Toast.LENGTH_LONG).show();
-
+//            Toast.makeText(this, savedInstanceState.getString("toBeEvaluated"), Toast.LENGTH_LONG).show();//unnecessary.
             calcScreen.setText(savedInstanceState.getString("toBeEvaluated"));
             toBeEvaluated=savedInstanceState.getString("toBeEvaluated");
         }
-
         calcScreen.setText(toBeEvaluated);
 
     }
@@ -158,9 +158,7 @@ public class MainActivity extends ActionBarActivity {
         showOnScreen = toBeEvaluated;
         calcScreen = (TextView) findViewById(R.id.calcScreen);
         calcScreen.setText(toBeEvaluated);
-        ans=" ";
-        ansview=(TextView) findViewById(R.id.anstxtview);
-        ansview.setText(ans.trim());
+
     }
 
 
@@ -174,14 +172,20 @@ public class MainActivity extends ActionBarActivity {
         } else if (ans != "") {
             toBeEvaluated += ans;
             calcScreen.setText(toBeEvaluated);
+        } else if (ans == "" && calcScreen.getText() == ""){
+            calcScreen.setText("");
+            ansview.setText("");
         }
+    }
+    public void clearans(View v){
+        ans ="";
+        ansview.setText(ans);
     }
 
     public void absolutEval(View v) {
         try {
             //calcScreen = (TextView) findViewById(R.id.calcScreen);
             //toBeEvaluated = calcScreen.getText().toString();
-
 
             Expressions expressions = new Expressions(toBeEvaluated);
             BigDecimal result = new BigDecimal(String.valueOf(expressions.eval()));
@@ -192,9 +196,7 @@ public class MainActivity extends ActionBarActivity {
             } else if (toBeEvaluated.charAt(0) == '-') {
                 toBeEvaluated = toBeEvaluated.replace(toBeEvaluated.charAt(0), ' ');
                 toBeEvaluated = toBeEvaluated.trim();
-
             }
-
             calcScreen.setText(toBeEvaluated);
 
 
@@ -205,7 +207,7 @@ public class MainActivity extends ActionBarActivity {
         } catch (RuntimeException r) {
             calcScreen.setText("Error");
         }
-        ans = "";
+
 
 
     }
@@ -273,7 +275,6 @@ public class MainActivity extends ActionBarActivity {
             checkParenthesis();
 
             Button button = (Button) findViewById(v.getId());
-
             showOnScreen += button.getText();
             //toBeEvaluated+=button.getText();
             //toBeEvaluated.toString();
@@ -287,9 +288,6 @@ public class MainActivity extends ActionBarActivity {
 
             calcScreen.setText((showOnScreen));
 
-//            ans=showOnScreen;
-//            ansview=(TextView) findViewById(R.id.anstxtview);
-//            ansview.setText(ans.trim());
 
         } catch (EmptyStackException e) {
             calcScreen.setText("Err. Nothing Here, Clear Screen.");
@@ -298,6 +296,7 @@ public class MainActivity extends ActionBarActivity {
         } catch (RuntimeException r) {
             calcScreen.setText("You broke me. :( Clear.");
         }
+
     }
 
     @Override

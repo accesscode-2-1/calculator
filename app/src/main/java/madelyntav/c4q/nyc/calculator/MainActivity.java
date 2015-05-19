@@ -17,7 +17,7 @@ import java.util.EmptyStackException;
 
 public class MainActivity extends ActionBarActivity {
     private String ans = "";
-    private String toBeEvaluated ="";
+    private String toBeEvaluated =" ";
     private String showOnScreen = " ";
     private TextView calcScreen;
     private TextView ansview;
@@ -44,12 +44,12 @@ public class MainActivity extends ActionBarActivity {
         Button button = (Button) findViewById(v.getId());
 
         String buttonText = button.getText().toString();
-        if(showOnScreen.equals(null)){
+        if(toBeEvaluated.equals(null)){
             showOnScreen=buttonText;
-            toBeEvaluated=showOnScreen;
+            toBeEvaluated+=showOnScreen;
         }
-        if (showOnScreen != null) {
-            if (showOnScreen.charAt(showOnScreen.length() - 1) == '=') {
+        if (toBeEvaluated != null) {
+            if (toBeEvaluated.charAt(toBeEvaluated.length() - 1) == '=') {
                 if (buttonText.equals("1") ||
                         buttonText.equals("2") ||
                         buttonText.equals("3") ||
@@ -60,21 +60,22 @@ public class MainActivity extends ActionBarActivity {
                         buttonText.equals("8") ||
                         buttonText.equals("9") ||
                         buttonText.equals("0")) {
-                    toBeEvaluated = buttonText;
+                    toBeEvaluated += buttonText;
                     showOnScreen = buttonText;
-                    showOnScreen.trim();
-                    toBeEvaluated.trim();
+//                    showOnScreen.trim();
+//                    toBeEvaluated.trim();
                 }
 
             } else {
-                toBeEvaluated += buttonText.toString();
-                showOnScreen=buttonText.toString();
+                toBeEvaluated += buttonText;
+                showOnScreen+=buttonText;
             }
         }
 
         calcScreen = (TextView) findViewById(R.id.calcScreen);
 
-        calcScreen.setText(toBeEvaluated);
+
+        calcScreen.setText(showOnScreen.trim());
 
     }
 
@@ -88,18 +89,21 @@ public class MainActivity extends ActionBarActivity {
 
 
         if ((toBeEvaluated == null) || (toBeEvaluated.equals("")||toBeEvaluated.equals(" "))) {
-            toBeEvaluated.trim();
 
-            toBeEvaluated = "0" + button.getText().toString();
-            showOnScreen += toBeEvaluated;
+
+            toBeEvaluated += "0" + button.getText().toString();
+            showOnScreen =button.getText().toString();
 
         } else
 
         if (toBeEvaluated.charAt(toBeEvaluated.length()-1)==check){
             toBeEvaluated+="";
+            showOnScreen+="";
 
         }
+
         else {
+
             toBeEvaluated += button.getText().toString();
 
 
@@ -154,9 +158,9 @@ public class MainActivity extends ActionBarActivity {
         showOnScreen = toBeEvaluated;
         calcScreen = (TextView) findViewById(R.id.calcScreen);
         calcScreen.setText(toBeEvaluated);
-        ans="";
+        ans=" ";
         ansview=(TextView) findViewById(R.id.anstxtview);
-        ansview.setText(ans);
+        ansview.setText(ans.trim());
     }
 
 
@@ -175,8 +179,10 @@ public class MainActivity extends ActionBarActivity {
 
     public void absolutEval(View v) {
         try {
-            calcScreen = (TextView) findViewById(R.id.calcScreen);
-            toBeEvaluated = calcScreen.getText().toString();
+            //calcScreen = (TextView) findViewById(R.id.calcScreen);
+            //toBeEvaluated = calcScreen.getText().toString();
+
+
             Expressions expressions = new Expressions(toBeEvaluated);
             BigDecimal result = new BigDecimal(String.valueOf(expressions.eval()));
             toBeEvaluated = result.toPlainString();
@@ -269,23 +275,26 @@ public class MainActivity extends ActionBarActivity {
             Button button = (Button) findViewById(v.getId());
 
             showOnScreen += button.getText();
-            toBeEvaluated.toString();
+            //toBeEvaluated+=button.getText();
+            //toBeEvaluated.toString();
 
             Expressions expressions = new Expressions(toBeEvaluated);
             BigDecimal result = new BigDecimal(String.valueOf(expressions.eval()));
 
-            toBeEvaluated = result.toPlainString();
+            showOnScreen = result.toPlainString();
 
-            calcScreen.setText((toBeEvaluated));
+            toBeEvaluated+=showOnScreen;
 
-            ans=toBeEvaluated;
-            ansview=(TextView) findViewById(R.id.anstxtview);
-            ansview.setText(ans);
+            calcScreen.setText((showOnScreen));
+
+//            ans=showOnScreen;
+//            ansview=(TextView) findViewById(R.id.anstxtview);
+//            ansview.setText(ans.trim());
 
         } catch (EmptyStackException e) {
             calcScreen.setText("Err. Nothing Here, Clear Screen.");
         } catch (NullPointerException e) {
-            calcScreen.setText("Err. Invalid input, Clear Screen.");
+            calcScreen.setText("Err. Null Pointer.");
         } catch (RuntimeException r) {
             calcScreen.setText("You broke me. :( Clear.");
         }

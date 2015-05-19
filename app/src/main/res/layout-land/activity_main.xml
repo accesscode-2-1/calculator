@@ -302,7 +302,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ASIN("
-            android:onClick="getButtonText"
+            android:onClick="Sohcahtoa"
             android:id="@+id/asin"
             android:background="#96ffffff"
 
@@ -352,7 +352,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ACOS("
-            android:onClick="getButtonText"
+            android:onClick="Sohcahtoa"
             android:id="@+id/acos"
             android:background="#96ffffff"
             />
@@ -403,7 +403,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ATAN("
-            android:onClick="getButtonText"
+            android:onClick="Sohcahtoa"
             android:id="@+id/atan"
             android:background="#96ffffff"
             />

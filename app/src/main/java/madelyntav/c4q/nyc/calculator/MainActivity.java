@@ -80,13 +80,13 @@ public class MainActivity extends ActionBarActivity {
         Button button = (Button) findViewById(v.getId());
         TextView calcS=(TextView) findViewById(R.id.calcScreen);
 
-        if (calcScreen == null) {
+        if (showOnScreen == null) {
 
             toBeEvaluated = button.getText() + "(";
 
             calcS.setText(toBeEvaluated);
 
-        } else if (calcScreen.getText()==""){
+        } else if (showOnScreen.equals(" ")){
             toBeEvaluated = button.getText() + "(";
 
         }
@@ -95,7 +95,10 @@ public class MainActivity extends ActionBarActivity {
 
             toBeEvaluated = button.getText() + "(" + toBeEvaluated + ")";
 
-        calcS.setText(toBeEvaluated);
+
+        showOnScreen=toBeEvaluated;
+
+        calcS.setText(showOnScreen);
 
     }
 

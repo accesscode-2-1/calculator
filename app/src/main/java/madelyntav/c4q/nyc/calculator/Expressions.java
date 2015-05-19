@@ -206,6 +206,8 @@ public class Expressions {
             "3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679");
     public static final BigDecimal e = new BigDecimal(
             "2.7182818284590452353602874713526624977572470936999595749669676277240766303535475945713821785251664274");
+    public static final BigDecimal phi = new BigDecimal(
+            "1.6180339887498948482045868343656381177203091798057628621354486227052604628189024497072072041893911374");
 
     /**
      * The {@link MathContext} to use for calculations.
@@ -815,6 +817,7 @@ public class Expressions {
 
         variables.put("PI", PI);
         variables.put("e", e);
+        variables.put("phi",phi);
         variables.put("TRUE", BigDecimal.ONE);
         variables.put("FALSE", BigDecimal.ZERO);
 

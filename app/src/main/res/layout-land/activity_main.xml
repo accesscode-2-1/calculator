@@ -5,7 +5,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MainActivity"
-    android:background="@drawable/mathybackground"
+    android:background="@drawable/phiimg"
     >
 
     <GridLayout
@@ -236,17 +236,19 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="%"
-            android:onClick="getButtonText"
-            android:id="@+id/percentage"
-            android:background="#96ffffff"/>
+            android:text="( )"
+            android:background="#96ffffff"
+            android:onClick="openAndCloseParens"
+            android:id="@+id/parclose"
+            android:layout_alignTop="@+id/gridLayout2"
+            android:layout_alignStart="@+id/absolutEval" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="+/-"
-            android:onClick="getButtonText"
+            android:onClick="negButton"
             android:id="@+id/negative"
             android:background="#96ffffff"/>
 
@@ -254,25 +256,57 @@
     </LinearLayout>
 
     <TextView
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text=""
         android:id="@+id/calcScreen"
-        android:layout_alignParentTop="true"
+        android:background="@drawable/customborder"
+        android:backgroundTint="#ff00dce6"
         android:layout_alignParentStart="true"
-        android:background="#ff18ffd8"
-
-        android:layout_above="@+id/gridLayout2"
-        android:layout_toStartOf="@+id/linearLayout" />
+        android:layout_toStartOf="@+id/linearLayout"
+        android:layout_below="@+id/gridLayout2"
+        android:layout_alignBottom="@+id/linearLayout" />
 
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:columnCount="5"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/gridLayout2">
+        android:id="@+id/gridLayout2"
+        android:layout_alignParentTop="true">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LOG("
+            android:onClick="getButtonText"
+            android:id="@+id/log"
+            android:background="#96ffffff"
+            />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SIN"
+            android:onClick="Sohcahtoa"
+            android:id="@+id/sine"
+            android:background="#96ffffff"
+            />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ASIN("
+            android:onClick="getButtonText"
+            android:id="@+id/asin"
+            android:background="#96ffffff"
+
+            />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -292,53 +326,17 @@
             android:id="@+id/degrees"
             android:background="#96ffffff"
             />
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="X!"
-            android:onClick="getButtonText"
-            android:id="@+id/factorial"
-            android:background="#96ffffff"
-            />
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="lnv"
-            android:onClick="getButtonText"
-            android:id="@+id/lnv"
-            android:background="#96ffffff"
-
-            />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SIN"
-            android:onClick="Sohcahtoa"
-            android:id="@+id/sine"
-            android:background="#96ffffff"
-            />
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LN"
+            android:text="LOG10("
             android:onClick="getButtonText"
             android:id="@+id/nlog"
             android:background="#96ffffff"
             />
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="PI"
-            android:onClick="getButtonText"
-            android:id="@+id/pi"
-            android:background="#96ffffff"
-            />
+
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
@@ -348,15 +346,27 @@
             android:id="@+id/cosine"
             android:background="#96ffffff"
             />
+
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="LOG("
+            android:text="ACOS("
             android:onClick="getButtonText"
-            android:id="@+id/log"
+            android:id="@+id/acos"
             android:background="#96ffffff"
             />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PI"
+            android:onClick="getButtonText"
+            android:id="@+id/pi"
+            android:background="#96ffffff"
+            />
+
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
@@ -367,6 +377,17 @@
             android:background="#96ffffff"
 
             />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SQRT("
+            android:onClick="getButtonText"
+            android:id="@+id/squareroot"
+            android:background="#96ffffff"
+            />
+
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
@@ -376,15 +397,27 @@
             android:id="@+id/tangent"
             android:background="#96ffffff"
             />
+
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SQRT"
+            android:text="ATAN("
             android:onClick="getButtonText"
-            android:id="@+id/squareroot"
+            android:id="@+id/atan"
             android:background="#96ffffff"
             />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="^"
+            android:onClick="getButtonText"
+            android:id="@+id/tothepowerof"
+            android:background="#96ffffff"
+            />
+
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
@@ -394,24 +427,6 @@
             android:id="@+id/answer"
             android:background="#96ffffff"
 
-            />
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="EXP"
-            android:onClick="getButtonText"
-            android:id="@+id/exponent"
-            android:background="#96ffffff"
-            />
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="^"
-            android:onClick="getButtonText"
-            android:id="@+id/tothepowerof"
-            android:background="#96ffffff"
             />
     </GridLayout>
 
@@ -423,18 +438,29 @@
         android:id="@+id/absolutEval"
         android:onClick="absolutEval"
         android:background="#96ffffff"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignTop="@+id/gridLayout2"
+        android:layout_toEndOf="@+id/gridLayout2" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="("
+        android:text="%"
+        android:onClick="getButtonText"
+        android:id="@+id/percentage"
         android:background="#96ffffff"
-        android:onClick="openAndCloseParens"
-        android:id="@+id/parclose"
-        android:layout_below="@+id/calcScreen"
-        android:layout_toStartOf="@+id/linearLayout" />
+        android:layout_alignTop="@+id/overNums"
+        android:layout_toStartOf="@+id/overNums" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="phi"
+        android:id="@+id/phi"
+        android:onClick="getButtonText"
+        android:background="#96ffffff"
+        android:layout_below="@+id/absolutEval"
+        android:layout_toEndOf="@+id/gridLayout2" />
 
 </RelativeLayout>

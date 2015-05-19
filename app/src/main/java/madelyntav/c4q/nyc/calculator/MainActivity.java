@@ -17,12 +17,17 @@ public class MainActivity extends ActionBarActivity {
     private String toBeEvaluated="";
     private String showOnScreen=" ";
     private TextView calcScreen;
+    boolean resultGiven = false;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        calcScreen = (TextView) findViewById(R.id.calcScreen);
+        calcScreen.getText();
+
     }
 
     public void getButtonText(View v) {
@@ -46,6 +51,7 @@ public class MainActivity extends ActionBarActivity {
         calcScreen = (TextView) findViewById(R.id.calcScreen);
 
         calcScreen.setText(toBeEvaluated);
+
         }
 
     public void getOperators(View v){
@@ -125,6 +131,7 @@ public class MainActivity extends ActionBarActivity {
             calcScreen.setText(toBeEvaluated);
         }
     }
+
     public void absolutEval(View v){
         try {
             calcScreen = (TextView) findViewById(R.id.calcScreen);
@@ -206,7 +213,10 @@ public class MainActivity extends ActionBarActivity {
         calcS.setText(toBeEvaluated);
     }
 
+
+
     public void evaluateExpression(View v){
+
 
         //TODO Switch to Anti's (Madelyn)
 
@@ -214,9 +224,12 @@ public class MainActivity extends ActionBarActivity {
 
         //TODO Figure out percent(MAYBE)
 
-        //TODO Add Textview that shows ans
 
         //TODO Save Screen if turned
+
+        //TODO Add Textview that shows ans
+
+
 
 
 
@@ -238,8 +251,7 @@ public class MainActivity extends ActionBarActivity {
             toBeEvaluated=result.toPlainString();
 
             calcScreen.setText((toBeEvaluated));
-
-
+            resultGiven = true;
         }catch (EmptyStackException e){
             calcScreen.setText("Err. Nothing Here, Clear Screen.");
         } catch (NullPointerException e){
@@ -248,6 +260,11 @@ public class MainActivity extends ActionBarActivity {
             calcScreen.setText("You broke me. :( Clear.");
         }
         ans ="";
+
+
+
+
+
 
 
     }

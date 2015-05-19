@@ -229,7 +229,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="("
+            android:text="( )"
             android:id="@+id/Openparens"
             android:onClick="getButtonText"/>
 
@@ -243,9 +243,10 @@
         android:id="@+id/calcScreen"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:background="#ff18ffd8"
+        android:background="@drawable/customborder"
         android:inputType="number"
         android:layout_alignEnd="@+id/gridLayout3"
-        android:layout_above="@+id/overNums" />
+        android:layout_above="@+id/overNums"
+        android:backgroundTint="#ff00dce6" />
 
 </RelativeLayout>

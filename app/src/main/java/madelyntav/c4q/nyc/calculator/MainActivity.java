@@ -46,6 +46,7 @@ public class MainActivity extends ActionBarActivity {
         String buttonText = button.getText().toString();
         if(showOnScreen.equals(null)){
             showOnScreen=buttonText;
+            toBeEvaluated=showOnScreen;
         }
         if (showOnScreen != null) {
             if (showOnScreen.charAt(showOnScreen.length() - 1) == '=') {
@@ -67,6 +68,7 @@ public class MainActivity extends ActionBarActivity {
 
             } else {
                 toBeEvaluated += buttonText.toString();
+                showOnScreen=buttonText.toString();
             }
         }
 
@@ -82,16 +84,27 @@ public class MainActivity extends ActionBarActivity {
 
         calcScreen = (TextView) findViewById(R.id.calcScreen);
 
-        if ((toBeEvaluated == null) || (toBeEvaluated == "")) {
+        char check=button.getText().charAt(0);
 
-            toBeEvaluated += "0" + button.getText().toString();
+
+        if ((toBeEvaluated == null) || (toBeEvaluated.equals("")||toBeEvaluated.equals(" "))) {
+            toBeEvaluated.trim();
+
+            toBeEvaluated = "0" + button.getText().toString();
             showOnScreen += toBeEvaluated;
 
         } else
+
+        if (toBeEvaluated.charAt(toBeEvaluated.length()-1)==check){
+            toBeEvaluated+="";
+
+        }
+        else {
             toBeEvaluated += button.getText().toString();
 
 
-        showOnScreen = button.getText().toString();
+            showOnScreen = button.getText().toString();
+        }
 
         calcScreen.setText(showOnScreen);
     }
@@ -116,6 +129,7 @@ public class MainActivity extends ActionBarActivity {
         } else
 
             toBeEvaluated = button.getText() + "(" + toBeEvaluated + ")";
+
 
 
         showOnScreen = toBeEvaluated;
@@ -152,7 +166,6 @@ public class MainActivity extends ActionBarActivity {
             ansview.setText(ans);
         } else if (ans != "") {
             toBeEvaluated += ans;
-
             calcScreen.setText(toBeEvaluated);
         }
     }
@@ -211,11 +224,14 @@ public class MainActivity extends ActionBarActivity {
 
     public void openAndCloseParens(View v) {
         int p = 0;
+
+        Button button=(Button) findViewById(v.getId());
+
         if (toBeEvaluated == null) {
-            toBeEvaluated = "(";
+            toBeEvaluated = button.getText()+"(";
         }
         if (toBeEvaluated == "") {
-            toBeEvaluated = "(";
+            toBeEvaluated =button.getText()+ "(";
         } else {
             for (int i = 0; i < toBeEvaluated.length(); i++) {
                 if (toBeEvaluated.charAt(i) == '(') {
@@ -234,23 +250,16 @@ public class MainActivity extends ActionBarActivity {
             }
         }
         TextView calcS = (TextView) findViewById(R.id.calcScreen);
-        calcS.setText(toBeEvaluated);
+        calcS.setText(showOnScreen);
     }
 
 
     public void evaluateExpression(View v) {
 
 
-        //TODO Switch to Anti's (Madelyn)
+        //TODO fix Antis(John)
 
-        //TODO Clear Screen after answer
-
-        //TODO Figure out percent(MAYBE)
-
-        //TODO Save Screen if turned
-
-        //TODO Add Textview that shows ans
-
+        //TODO Add TextView that shows ans and Sync to get it working
 
         try {
 
@@ -274,10 +283,6 @@ public class MainActivity extends ActionBarActivity {
         } catch (RuntimeException r) {
             calcScreen.setText("You broke me. :( Clear.");
         }
-
-
-//        ans = "";
-//        ansview.setText(ans);
     }
 
     @Override

@@ -302,9 +302,9 @@
 
         <Button
             style="?android:attr/buttonStyleSmall"
-            android:text="ASIN("
+            android:text="ASIN"
             android:id="@+id/asin"
-            android:onClick="getButtonText"
+            android:onClick="Sohcahtoa"
             android:background="#96ffffff"
             android:layout_row="0"
             android:layout_column="2"
@@ -346,9 +346,9 @@
 
         <Button
             style="?android:attr/buttonStyleSmall"
-            android:text="ACOS("
+            android:text="ACOS"
             android:id="@+id/acos"
-            android:onClick="getButtonText"
+            android:onClick="Sohcahtoa"
             android:background="#96ffffff"
             android:layout_row="1"
             android:layout_column="2"
@@ -390,8 +390,8 @@
 
         <Button
             style="?android:attr/buttonStyleSmall"
-            android:text="ATAN("
-            android:onClick="getButtonText"
+            android:text="ATAN"
+            android:onClick="Sohcahtoa"
             android:id="@+id/atan"
             android:background="#96ffffff"
             android:layout_row="2"

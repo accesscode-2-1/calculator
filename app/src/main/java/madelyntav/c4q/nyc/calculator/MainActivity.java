@@ -16,7 +16,7 @@ import java.util.EmptyStackException;
 
 
 public class MainActivity extends ActionBarActivity {
-    private String ans = "";
+    private String ans ="";
     private String toBeEvaluated =" ";
     private String showOnScreen = " ";
     private TextView calcScreen;
@@ -158,7 +158,6 @@ public class MainActivity extends ActionBarActivity {
         showOnScreen = toBeEvaluated;
         calcScreen = (TextView) findViewById(R.id.calcScreen);
         calcScreen.setText(toBeEvaluated);
-
     }
 
 
@@ -241,7 +240,7 @@ public class MainActivity extends ActionBarActivity {
         if (toBeEvaluated == null) {
             toBeEvaluated = button.getText()+"(";
         }
-        if (toBeEvaluated == "") {
+        if (toBeEvaluated.equals("")||toBeEvaluated.equals(" ")) {
             toBeEvaluated =button.getText()+ "(";
         } else {
             for (int i = 0; i < toBeEvaluated.length(); i++) {
@@ -261,7 +260,7 @@ public class MainActivity extends ActionBarActivity {
             }
         }
         TextView calcS = (TextView) findViewById(R.id.calcScreen);
-        calcS.setText(showOnScreen);
+        calcS.setText(toBeEvaluated);
     }
 
 
@@ -270,9 +269,11 @@ public class MainActivity extends ActionBarActivity {
         //TODO Edge Cases(JOHN)
         //TODO fix layout
 
+        checkParenthesis();
+
         try {
 
-            checkParenthesis();
+
 
             Button button = (Button) findViewById(v.getId());
             showOnScreen += button.getText();

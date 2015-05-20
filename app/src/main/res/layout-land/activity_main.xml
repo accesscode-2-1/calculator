@@ -5,7 +5,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MainActivity"
-    android:background="@drawable/phiimg"
+    android:background="@drawable/horizontalphi"
     >
 
     <GridLayout
@@ -125,37 +125,6 @@
             android:layout_column="2"
             android:background="#96ffffff"/>
 
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="."
-            android:onClick="getOperators"
-            android:id="@+id/button"
-            android:layout_row="4"
-            android:layout_column="0"
-            android:background="#96ffffff"/>
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            android:onClick="getButtonText"
-            android:id="@+id/number0"
-            android:layout_row="4"
-            android:layout_column="1"
-            android:background="#96ffffff"/>
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="AC"
-            android:onClick="allClear"
-            android:id="@+id/ac"
-            android:background="#96ffffff"/>
-
     </GridLayout>
 
     <LinearLayout
@@ -165,60 +134,6 @@
         android:id="@+id/linearLayout"
         android:layout_alignParentBottom="true"
         android:layout_toStartOf="@+id/gridLayout">
-
-
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="/"
-            android:onClick="getOperators"
-            android:id="@+id/divide"
-            android:layout_alignParentBottom="true"
-            android:background="#96ffffff"/>
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="*"
-            android:onClick="getOperators"
-            android:id="@+id/times"
-            android:layout_alignBaseline="@+id/positive"
-            android:layout_alignBottom="@+id/positive"
-            android:layout_alignParentStart="true"
-            android:background="#96ffffff"/>
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-"
-            android:onClick="getOperators"
-            android:id="@+id/minus"
-            android:layout_below="@+id/times"
-            android:layout_alignParentStart="true"
-            android:background="#96ffffff"/>
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+"
-            android:onClick="getOperators"
-            android:id="@+id/plus"
-            android:background="#96ffffff"/>
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="="
-            android:onClick="evaluateExpression"
-            android:id="@+id/equals"
-            android:background="#96ffffff"/>
-
 
 
     </LinearLayout>
@@ -232,26 +147,6 @@
         android:layout_alignTop="@+id/linearLayout"
         android:layout_alignParentEnd="true">
 
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="( )"
-            android:background="#96ffffff"
-            android:onClick="openAndCloseParens"
-            android:id="@+id/parclose"
-            android:layout_alignTop="@+id/gridLayout2"
-            android:layout_alignStart="@+id/absolutEval" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+/-"
-            android:onClick="negButton"
-            android:id="@+id/negative"
-            android:background="#96ffffff"/>
-
 
     </LinearLayout>
 
@@ -263,11 +158,10 @@
         android:text=""
         android:id="@+id/calcScreen"
         android:background="@drawable/customborder"
-        android:backgroundTint="#ff00dce6"
         android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/linearLayout"
+        android:layout_toStartOf="@+id/overNums"
         android:layout_alignParentTop="true"
-        android:layout_above="@+id/gridLayout" />
+        android:layout_above="@+id/answer" />
 
     <GridLayout
         android:layout_width="wrap_content"
@@ -388,18 +282,18 @@
         android:onClick="getButtonText"
         android:id="@+id/percentage"
         android:background="#96ffffff"
-        android:layout_alignTop="@+id/overNums"
-        android:layout_toStartOf="@+id/overNums" />
+        android:layout_below="@+id/negative"
+        android:layout_toEndOf="@+id/e" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=""
         android:id="@+id/anstxtview"
-        android:background="@drawable/customborder"
-        android:backgroundTint="#c457a7ff"
-        android:layout_alignBottom="@+id/cansbutton"
-        android:layout_alignEnd="@+id/calcScreen"
+        android:background="@drawable/customborderpurple"
+        android:layout_above="@+id/gridLayout2"
+        android:layout_alignEnd="@+id/times"
         android:layout_toEndOf="@+id/cansbutton" />
 
     <Button
@@ -451,11 +345,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ABS"
-        android:id="@+id/absolutEval"
-        android:onClick="absolutEval"
+        android:id="@+id/absbutton"
+        android:onClick="absbutton"
         android:background="#96ffffff"
-        android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/phi" />
+        android:layout_above="@+id/gridLayout"
+        android:layout_toEndOf="@+id/minus" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -467,5 +361,130 @@
         android:background="#96ffffff"
         android:layout_above="@+id/gridLayout2"
         android:layout_toEndOf="@+id/answer" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CE"
+        android:id="@+id/ce"
+        android:onClick="ce"
+        android:background="#96ffffff"
+        android:layout_below="@+id/calcScreen"
+        android:layout_toStartOf="@+id/ac" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AC"
+        android:onClick="allClear"
+        android:id="@+id/ac"
+        android:background="#96ffffff"
+        android:layout_below="@+id/calcScreen"
+        android:layout_alignEnd="@+id/gridLayout" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="( )"
+        android:background="#96ffffff"
+        android:onClick="openAndCloseParens"
+        android:id="@+id/parclose"
+        android:layout_alignTop="@+id/phi"
+        android:layout_toEndOf="@+id/phi" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+/-"
+        android:onClick="positiveNegativeSwitch"
+        android:id="@+id/negative"
+        android:background="#96ffffff"
+        android:layout_alignTop="@+id/e"
+        android:layout_toEndOf="@+id/e" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/"
+        android:onClick="getOperators"
+        android:id="@+id/divide"
+        android:background="#96ffffff"
+        android:layout_below="@+id/times"
+        android:layout_alignStart="@+id/times" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="*"
+        android:onClick="getOperators"
+        android:id="@+id/times"
+        android:background="#96ffffff"
+        android:layout_below="@+id/equals"
+        android:layout_toStartOf="@+id/minus" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:onClick="getOperators"
+        android:id="@+id/minus"
+        android:background="#96ffffff"
+        android:layout_below="@+id/absbutton"
+        android:layout_toStartOf="@+id/gridLayout" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:onClick="getOperators"
+        android:id="@+id/plus"
+        android:background="#96ffffff"
+        android:layout_below="@+id/minus"
+        android:layout_toStartOf="@+id/gridLayout" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="="
+        android:onClick="evaluateExpression"
+        android:id="@+id/equals"
+        android:background="#96ffffff"
+        android:layout_below="@+id/calcScreen"
+        android:layout_alignEnd="@+id/linearLayout" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="."
+        android:onClick="getOperators"
+        android:id="@+id/button"
+        android:layout_row="4"
+        android:layout_column="0"
+        android:background="#96ffffff"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/number0" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:onClick="getButtonText"
+        android:id="@+id/number0"
+        android:layout_row="4"
+        android:layout_column="1"
+        android:background="#96ffffff"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/gridLayout" />
 
 </RelativeLayout>

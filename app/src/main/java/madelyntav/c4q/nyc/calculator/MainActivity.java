@@ -8,64 +8,90 @@ import android.widget.TextView;
 import java.math.BigDecimal;
 import java.util.EmptyStackException;
 
-public class MainActivity extends ActionBarActivity {
-    private String ans ="";
-    private TextView ansview;
-    private String toBeEvaluated =" ";
-    private String showOnScreen = " ";
-    private TextView calcScreen;
 
+public class MainActivity extends ActionBarActivity {
+    private String ans ="";//saved answer.
+    private TextView ansview;//screen for the saved answer
+    private String toBeEvaluated =" ";//expression
+    private String showOnScreen = " ";//shown on main screen
+    private TextView calcScreen;//main screen
+
+    /*
+    Madelyn, The following code comments will be verbose, but that is mainly so that you and I can understand how our code works. The final state of it should
+    be more concsice with it's commentary.
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        calcScreen = (TextView) findViewById(R.id.calcScreen);
-        ansview = (TextView) findViewById(R.id.anstxtview);
+        calcScreen = (TextView) findViewById(R.id.calcScreen);//connects variable name to calcscreen in layout.
+        ansview = (TextView) findViewById(R.id.anstxtview);//does the same for the saved answer screen
 
-        if(savedInstanceState != null ) {
-            calcScreen.setText(savedInstanceState.getString("toBeEvaluated"));
-            toBeEvaluated=savedInstanceState.getString("toBeEvaluated");
+        if(savedInstanceState != null ) {//if there is a saved instance
+            calcScreen.setText(savedInstanceState.getString("toBeEvaluated"));//set the text in the main screen to be the current expression
+            toBeEvaluated=savedInstanceState.getString("toBeEvaluated");//?
         }
-        calcScreen.setText(toBeEvaluated);
-    }
 
+        calcScreen.setText(toBeEvaluated);//sets the main screen text to the current contents in the expression.
+    }
 
     public void getButtonText(View v) {
-        Button button = (Button) findViewById(v.getId());
-        String buttonText = button.getText().toString();
+        Button button = (Button) findViewById(v.getId());//any button in our layout with this method signature name in its onCall attribute
+        String buttonText = button.getText().toString();//stores the contents of that button in a string variable.
 
-        if(toBeEvaluated.equals(null)){
-            showOnScreen=buttonText;
-            toBeEvaluated+=showOnScreen;
-        } else if (toBeEvaluated != null) {
+        if(toBeEvaluated.equals(null)){//if there is nothing in our toBeEvaluated var.
+            showOnScreen=buttonText;//The main screen will show the contents of the button.
+            toBeEvaluated+=showOnScreen;//each button pressed will be added to toBeEvaluated.
+        }
 
-            //changed code to replace number check. Does the same but it's cleaner
-            if (Character.isDigit(toBeEvaluated.charAt(toBeEvaluated.length() - 1))) {
-                    toBeEvaluated += buttonText;
-                    showOnScreen = toBeEvaluated;
-            } else {
-                toBeEvaluated += buttonText;
-                showOnScreen += buttonText;
+        else if (toBeEvaluated != null) {//otherwise, if there is something in toBeEvaluated.
+
+            try {
+                //changed code to replace number check. Does the same but it's cleaner
+                if (Character.isDigit(toBeEvaluated.charAt(0)) ||
+                        Character.isDigit(toBeEvaluated.charAt(toBeEvaluated.length() - 1))) {//if the button contents are digits.
+                    toBeEvaluated += buttonText;//the expression will add those numbers to the expression in the screen.
+                    showOnScreen = toBeEvaluated;//What is shown on the main screen is what is saved in memory for the expression.
+                    calcScreen.setText(showOnScreen);//Set that to show in the main screen
+                } else {//if the button pressed is not a numerical digit.
+                    toBeEvaluated += buttonText;//it will be added to whatever the current expression contains.
+                    showOnScreen = toBeEvaluated;//what is show on screen is the current state of the expression. plus what button is pressed.
+                }
+            } catch (StringIndexOutOfBoundsException e) {//catching clearend exception.
+                toBeEvaluated += buttonText;//If clearend (ce) throws an exception the expression will add the number that caused it to the mainscreen. This fixes ce crash.
+                showOnScreen = toBeEvaluated;//What is shown on the main screen is what is saved in memory for the expression.
+                calcScreen.setText(showOnScreen);//show that to the user
             }
         }
-        calcScreen = (TextView) findViewById(R.id.calcScreen);
-        calcScreen.setText(showOnScreen.trim());
+        calcScreen.setText(showOnScreen.trim());//In any case shown on main screen is the current state of said var. Whitespace ommited.
     }
+    public void ce(View v){//backspace. (clearEnd) also ce. This method called by button ce clears the last letter currently showin on main screen.
+        StringBuffer charDel = new StringBuffer(showOnScreen);//chose a buffer because it gives us the deleteCharAt method which made the code simpler.
+                try {
+                    charDel = charDel.deleteCharAt(charDel.length() - 1);//clears last letter of showOnScreen when method is called by button.
+                    showOnScreen = String.valueOf(charDel);//saves the new state of showOnScreen
+                    calcScreen.setText(showOnScreen);//prints it in the main screen
+                    toBeEvaluated = showOnScreen;//saves it as the new expression
+                }catch (StringIndexOutOfBoundsException e){//if there is nothing else to delete
+                    calcScreen.setText(calcScreen.getText());//sets the state of the main screen to an empty state
+                }
+    }
+    //TODO Implement m-
+    //TODO Implement m+
 
-
-    public void getOperators(View v) {
-
+    //TODO Madelyn: comment the following three methods as you deem necessary.
+    public void getOperators(View v) {//sifts through operators and appends them to both the screen and expression var as needed.
         Button button = (Button) findViewById(v.getId());
         calcScreen = (TextView) findViewById(R.id.calcScreen);
-        char check = button.getText().charAt(0);
 
+        char checkIfOperand = button.getText().charAt(0);
 
         if ((toBeEvaluated == null) || (toBeEvaluated.equals("")||toBeEvaluated.equals(" "))) {
             toBeEvaluated += "0" + button.getText().toString();
             showOnScreen =button.getText().toString();
-        } else if (toBeEvaluated.charAt(toBeEvaluated.length()-1) == check){
+        } else if (toBeEvaluated.charAt(toBeEvaluated.length()-1) == checkIfOperand){
             toBeEvaluated+="";
             showOnScreen+="";
         }
@@ -75,9 +101,7 @@ public class MainActivity extends ActionBarActivity {
         }
         calcScreen.setText(toBeEvaluated);
     }
-
-
-    public void Sohcahtoa(View v) {
+    public void Sohcahtoa(View v) {//Code for parenthesis for sin cos and tan
 
         Button button = (Button) findViewById(v.getId());
         TextView calcS = (TextView) findViewById(R.id.calcScreen);
@@ -95,20 +119,30 @@ public class MainActivity extends ActionBarActivity {
 
             calcS.setText(showOnScreen);
     }
+    public void positiveNegativeSwitch(View v) {//calculates the current expression on the screen and outputs it's inverse (positive/negative) solution.
+        try {
+            Expressions expressions = new Expressions(toBeEvaluated);
+            BigDecimal result = new BigDecimal(String.valueOf(expressions.eval()));
+            toBeEvaluated = result.toPlainString();
+            if (toBeEvaluated.charAt(0) != '-' && toBeEvaluated.charAt(0) != '+') {
+                toBeEvaluated = "-" + toBeEvaluated;
+            } else if (toBeEvaluated.charAt(0) == '-') {
+                toBeEvaluated = toBeEvaluated.replace(toBeEvaluated.charAt(0), ' ');
+                toBeEvaluated = toBeEvaluated.trim();
+            }
+            calcScreen.setText(toBeEvaluated);
 
-
-    public void negButton(View v) {
-        if (toBeEvaluated.charAt(0) != '-' && toBeEvaluated.charAt(0) != '+') {
-            toBeEvaluated = "-" + toBeEvaluated;
-        } else if (toBeEvaluated.charAt(0) == '-') {
-            toBeEvaluated = toBeEvaluated.replace(toBeEvaluated.charAt(0), ' ');
-            toBeEvaluated = toBeEvaluated.trim();
+        } catch (EmptyStackException e) {//error handling just in case
+            calcScreen.setText("Err. Nothing To Calculate");
+        } catch (NullPointerException e) {
+            calcScreen.setText("Err. Invalid input, Clear Screen.");
+        } catch (RuntimeException r) {
+            calcScreen.setText("Error");
         }
-        calcScreen.setText(toBeEvaluated);
     }
 
 
-    public void allClear(View v) {
+    public void allClear(View v) {//clears whole screen. In layout as: (AC)
         toBeEvaluated = " ";
         showOnScreen = toBeEvaluated;
         calcScreen = (TextView) findViewById(R.id.calcScreen);
@@ -116,7 +150,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
-    public void ans(View v) {
+    public void ans(View v) {//Saves current state of the expressions' answer to a variable one can reuse
 
         if ((calcScreen.getText() != "") && ans == "") {
             Expressions expressions = new Expressions(calcScreen.getText().toString());
@@ -132,36 +166,23 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-
-    public void clearans(View v){
+    public void clearans(View v){//deletes saved ans variable
         ans ="";
         ansview.setText(ans);
     }
 
-
-    public void absolutEval(View v) {
-        try {
+    public void absbutton(View v) {//returns absolute value of expressions' answer. (it's positive value)
             Expressions expressions = new Expressions(toBeEvaluated);
             BigDecimal result = new BigDecimal(String.valueOf(expressions.eval()));
             toBeEvaluated = result.toPlainString();
-
-            if (toBeEvaluated.charAt(0) != '-' && toBeEvaluated.charAt(0) != '+') {
-                toBeEvaluated = "-" + toBeEvaluated;
-            } else if (toBeEvaluated.charAt(0) == '-') {
+             if (toBeEvaluated.charAt(0) == '-') {
                 toBeEvaluated = toBeEvaluated.replace(toBeEvaluated.charAt(0), ' ');
                 toBeEvaluated = toBeEvaluated.trim();
             }
             calcScreen.setText(toBeEvaluated);
-
-        } catch (EmptyStackException e) {
-            calcScreen.setText("Err. Nothing To Calculate");
-        } catch (NullPointerException e) {
-            calcScreen.setText("Err. Invalid input, Clear Screen.");
-        } catch (RuntimeException r) {
-            calcScreen.setText("Error");
-        }
     }
 
+//TODO Madeline: Can you explain the following method?
 
     private void checkParenthesis() {
         int p = 0;
@@ -178,8 +199,7 @@ public class MainActivity extends ActionBarActivity {
         }
         calcScreen.setText(toBeEvaluated);
     }
-
-
+//TODO this one as well?
     public void openAndCloseParens(View v) {
         int p = 0;
         Button button=(Button) findViewById(v.getId());
@@ -208,7 +228,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
-    public void evaluateExpression(View v) {
+    public void evaluateExpression(View v) {//equals sign calls on this to calculate and give the final solution to the expression.
 
         checkParenthesis();
 
@@ -221,16 +241,9 @@ public class MainActivity extends ActionBarActivity {
 
             showOnScreen = result.toPlainString();
 
-//            toBeEvaluated+=showOnScreen; <--This was giving us the wrong results.
+            calcScreen.setText((showOnScreen));//shows it on screen
+            toBeEvaluated = showOnScreen;//saves it as current expression.
 
-            calcScreen.setText((showOnScreen));
-            if (Character.isDigit(showOnScreen.charAt(showOnScreen.length() - 1))
-                    && Character.isDigit(button.getText().charAt(0))) {
-                showOnScreen.equals("");
-                toBeEvaluated.equals("");
-                toBeEvaluated = button.getText().toString();
-                calcScreen.setText(toBeEvaluated);
-            }
         } catch (EmptyStackException e) {
             calcScreen.setText("Err. Nothing Here, Clear Screen.");
         } catch (NullPointerException e) {
@@ -242,7 +255,7 @@ public class MainActivity extends ActionBarActivity {
 
 
     @Override
-    public void onSaveInstanceState(Bundle outState){
+    public void onSaveInstanceState(Bundle outState){//saves current state of screen in case of device flip.
         super.onSaveInstanceState(outState);
         outState.putString("toBeEvaluated", calcScreen.getText().toString());
         outState.putString("showOnScreen",showOnScreen);

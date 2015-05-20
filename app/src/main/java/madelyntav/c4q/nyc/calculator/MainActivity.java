@@ -158,7 +158,7 @@ public class MainActivity extends ActionBarActivity {
         showOnScreen = toBeEvaluated;
         calcScreen = (TextView) findViewById(R.id.calcScreen);
         calcScreen.setText(toBeEvaluated);
- 
+
     }
 
 
@@ -286,6 +286,8 @@ public class MainActivity extends ActionBarActivity {
             toBeEvaluated+=showOnScreen;
 
             calcScreen.setText((showOnScreen));
+
+
 
 //            ans=showOnScreen;
 //            ansview=(TextView) findViewById(R.id.anstxtview);

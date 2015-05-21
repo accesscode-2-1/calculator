@@ -162,15 +162,15 @@ public class MainActivity extends ActionBarActivity {
                     }
 
                 }
-                    if(shouldClose){
-                        enterClear(enterPressed);
-                        textview.append(" ) ");
-                        parenOpenCount--;
-                    }else{
-                        enterClear(enterPressed);
-                        textview.append(" ( ");
-                        parenOpenCount++;
-                    }
+                if(shouldClose){
+                    enterClear(enterPressed);
+                    textview.append(")");
+                    parenOpenCount--;
+                }else{
+                    enterClear(enterPressed);
+                    textview.append("(");
+                    parenOpenCount++;
+                }
 
 
 
@@ -196,7 +196,7 @@ public class MainActivity extends ActionBarActivity {
                 if(text.equals("")){
                     textview.append("0.");
                 }else if(!isOperator(text) && !(text.charAt(text.length() - 1) == '.'))
-                textview.append(".");
+                    textview.append(".");
             }
         });
         Button buttonClear = (Button) findViewById(R.id.clear);
@@ -212,13 +212,14 @@ public class MainActivity extends ActionBarActivity {
 
             @Override
             public void onClick(View view) {
+                enterClear(enterPressed);
+
                 if (textview.getText().equals("")) {
                     textview.setText(ans+ "+");
                 } else if (!isOperator(textview.getText().toString())){
                     textview.append("+");
                 }
 
-                enterClear(enterPressed);
 
             }
         });
@@ -226,13 +227,14 @@ public class MainActivity extends ActionBarActivity {
         buttonSubtract.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                enterClear(enterPressed);
                 if (textview.getText().equals("")) {
                     textview.setText(ans+ "-");
                 } else if (!isOperator(textview.getText().toString())){
                     textview.append("-");
                 }
 
-                enterClear(enterPressed);
+
 
             }
         });
@@ -270,6 +272,8 @@ public class MainActivity extends ActionBarActivity {
         buttonMultiply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                enterClear(enterPressed);
+
                 if (textview.getText().equals("")) {
                     textview.setText(ans+ "*");
                 } else if (!isOperator(textview.getText().toString())){
@@ -277,20 +281,20 @@ public class MainActivity extends ActionBarActivity {
                     textview.append("*");
                 }
 
-                enterClear(enterPressed);
             }
         });
         Button buttonDivide = (Button) findViewById(R.id.divide);
         buttonDivide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                enterClear(enterPressed);
+
                 if (textview.getText().equals("")) {
                     textview.setText(ans+ "/");
                 } else if (!isOperator(textview.getText().toString())){
                     textview.append("/");
                 }
 
-                enterClear(enterPressed);
 
             }
         });
@@ -635,7 +639,7 @@ public class MainActivity extends ActionBarActivity {
         }
 
 
-        }
+    }
 
 
     @Override

@@ -357,7 +357,7 @@
         android:layout_height="wrap_content"
         android:text="c/ANS"
         android:id="@+id/cansbutton"
-        android:onClick="clearans"
+        android:onClick="clearAns"
         android:background="#96ffffff"
         android:layout_above="@+id/gridLayout2"
         android:layout_toEndOf="@+id/answer" />

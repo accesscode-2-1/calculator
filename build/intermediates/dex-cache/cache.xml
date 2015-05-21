@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/mona/Desktop/accesscode/ScientificCalculator/app/libs/JbcParser.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ebad19e3e9e11d1420d341065cb64db5f11ddea1">
+        <dex dex="/Users/mona/Desktop/accesscode/ScientificCalculator/app/build/intermediates/pre-dexed/debug/JbcParser-3459bcdf10e057083a8014e767a2bebfd9dcc272.jar" />
+    </item>
+    <item
+        jar="/Users/mona/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.1.1/support-annotations-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
+        <dex dex="/Users/mona/Desktop/accesscode/ScientificCalculator/app/build/intermediates/pre-dexed/debug/support-annotations-22.1.1-ff593fee7e56630aec46d8b4056958c538ea3d2d.jar" />
+    </item>
+    <item
+        jar="/Users/mona/Desktop/accesscode/ScientificCalculator/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/libs/internal_impl-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="/Users/mona/Desktop/accesscode/ScientificCalculator/app/build/intermediates/pre-dexed/debug/internal_impl-22.1.1-476ad551dbad6107651cbeddd7d825c44a4e9989.jar" />
+    </item>
+    <item
+        jar="/Users/mona/Desktop/accesscode/ScientificCalculator/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
+        <dex dex="/Users/mona/Desktop/accesscode/ScientificCalculator/app/build/intermediates/pre-dexed/debug/classes-41216014f3390aed5723c24777900b0444e5c51b.jar" />
+    </item>
+    <item
+        jar="/Users/mona/Desktop/accesscode/ScientificCalculator/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
+        <dex dex="/Users/mona/Desktop/accesscode/ScientificCalculator/app/build/intermediates/pre-dexed/debug/classes-b43b8e540e3e113c9e79ebe49a3c137fdd0c7d41.jar" />
+    </item>
+
+</items>

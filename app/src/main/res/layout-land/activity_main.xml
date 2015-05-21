@@ -432,6 +432,18 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="!"
+        android:onClick="factorial"
+        android:id="@+id/factorial"
+        android:background="#96ffffff"
+        android:nestedScrollingEnabled="false"
+        android:layout_below="@+id/divide"
+        android:layout_toStartOf="@+id/divide" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="-"
         android:onClick="getOperators"
         android:id="@+id/minus"

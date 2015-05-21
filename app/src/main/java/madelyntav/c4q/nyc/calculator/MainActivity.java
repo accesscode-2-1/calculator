@@ -106,6 +106,24 @@ public class MainActivity extends ActionBarActivity {
         calcScreen.setText(toBeEvaluated);
     }
 
+    public void factorial(View v) {
+        int num = Integer.parseInt(calcScreen.getText().toString());
+        String result1 = "";
+        for (int i = num; i > 1; i--) {
+            num--;
+            if (i > 2) {
+                result1 += num + "*";
+            } else result1 += num;
+        }
+        toBeEvaluated += result1;
+        showOnScreen=result1;
+
+        calcScreen.setText(showOnScreen);
+
+    }
+
+
+
     public void Sohcahtoa(View v) {
 
         //Code for parenthesis for sin cos and tan

@@ -181,7 +181,7 @@ public class MainActivity extends ActionBarActivity {
         button0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                enterClear(enterPressed);
+//                enterClear(enterPressed);1
                 textview.append("0");
             }
         });

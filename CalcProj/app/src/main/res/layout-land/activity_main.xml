@@ -39,7 +39,6 @@
                 android:hint=""
                 android:id="@+id/textView"
                 android:layout_marginLeft="5dp"
-                android:maxLines="1"
                 android:layout_weight="1"
                 android:textStyle="bold"
                 android:background="#FFF"

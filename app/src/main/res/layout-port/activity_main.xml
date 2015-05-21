@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="bottom"
+    android:gravity="center|bottom"
+    android:background="@mipmap/math_background">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/calculate"
+        android:background="#07000000"
+        android:textSize="40dp"
+        android:autoText="false"
+        android:maxLength="90"
+        android:textColor="#ffffff" />
+
+    <TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="0dp"
+    android:layout_marginRight="0dp"
+    android:layout_marginBottom="30dp">
+
+    <TableRow>
+        <Button
+            android:id="@+id/clear_btn"
+            android:text="Clear"
+            android:layout_width="wrap_content"
+            android:background="@drawable/selector_button2"
+            />
+        <Button
+            android:id="@+id/division_btn"
+            android:text="/"
+            android:layout_width="wrap_content"
+            android:background="@drawable/selector_button2"
+            />
+
+        <Button
+            android:id="@+id/multiply_btn"
+            android:text="*"
+            android:layout_width="wrap_content"
+            android:background="@drawable/selector_button2"
+            />
+        <Button
+            android:id="@+id/backspace_btn"
+            android:text="BKSP"
+            android:layout_width="wrap_content"
+            android:background="@drawable/selector_button2"
+            />
+
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:id="@+id/seven_btn"
+            android:text="7"
+            android:layout_width="wrap_content"
+            android:background="@drawable/selector_button2"
+            />
+        <Button
+            android:id="@+id/eight_btn"
+            android:text="8"
+            android:layout_width="wrap_content"
+            android:background="@drawable/selector_button2"
+            />
+
+        <Button
+            android:id="@+id/nine_btn"
+            android:text="9"
+            android:layout_width="wrap_content"
+            android:background="@drawable/selector_button2"
+            />
+        <Button
+            android:id="@+id/minus_btn"
+            android:text="-"
+            android:layout_width="wrap_content"
+            android:background="@drawable/selector_button2"
+            />
+
+    </TableRow>
+    <TableRow>
+        <Button
+            android:id="@+id/four_btn"
+            android:text="4"
+            android:layout_width="wrap_content"
+            android:background="@drawable/selector_button2"
+            />
+        <Button
+            android:id="@+id/five_btn"
+            android:text="5"
+            android:layout_width="wrap_content"
+            android:background="@drawable/selector_button2"
+            />
+
+        <Button
+            android:id="@+id/six_btn"
+            android:text="6"
+            android:layout_width="wrap_content"
+            android:background="@drawable/selector_button2"
+            />
+        <Button
+            android:id="@+id/plus_btn"
+            android:text="+"
+            android:layout_width="wrap_content"
+            android:background="@drawable/selector_button2"
+            />
+
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:id="@+id/one_btn"
+            android:text="1"
+            android:layout_width="wrap_content"
+            android:background="@drawable/selector_button2"
+            />
+        <Button
+            android:id="@+id/two_btn"
+            android:text="2"
+            android:layout_width="wrap_content"
+            android:background="@drawable/selector_button2"
+            />
+
+        <Button
+            android:id="@+id/three_btn"
+            android:text="3"
+            android:layout_width="wrap_content"
+            android:background="@drawable/selector_button2"
+            />
+        <Button
+            android:id="@+id/right_parenthesis_btn"
+            android:text=")"
+            android:layout_width="wrap_content"
+            android:background="@drawable/selector_button2"
+            />
+    </TableRow>
+
+    <TableRow>
+        <Button
+
+            android:id="@+id/zero_btn"
+            android:text="0"
+            android:layout_width="wrap_content"
+            android:background="@drawable/selector_button2"
+            />
+        <Button
+            android:id="@+id/decimal_btn"
+            android:text="."
+            android:layout_width="wrap_content"
+            android:background="@drawable/selector_button2"
+            />
+        <Button
+            android:id="@+id/left_parenthesis_btn"
+            android:text="("
+            android:layout_width="wrap_content"
+            android:background="@drawable/selector_button2"
+            />
+        <Button
+            android:id="@+id/equals_btn"
+            android:text="="
+            android:layout_width="wrap_content"
+            android:background="@drawable/selector_button2"
+            />
+
+    </TableRow>
+
+</TableLayout>
+
+</LinearLayout>

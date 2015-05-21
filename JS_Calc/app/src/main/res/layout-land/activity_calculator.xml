@@ -1,0 +1,442 @@
+<!--Joshelyn will be the front end gal with Sarah as her sidekick!!-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#CC99FF"
+    tools:context=".Calculator"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            >
+
+            <TextView
+                android:id="@+id/preview"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:background="@drawable/output_view"
+                android:theme="@style/button_black"/>
+
+            <Button
+                android:id="@+id/clear"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/ac_shape"
+                android:gravity="center"
+                android:text="AC"
+                android:theme="@style/button_white" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp">
+
+            <ToggleButton
+                android:id="@+id/rad_to_deg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/operation_button"
+                android:textOn="DEG"
+                android:textOff="RAD"/>
+
+            <Button
+                android:id="@+id/expTen"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="E"
+                android:background="@drawable/pink_operation_button"
+                android:theme="@style/button_black2"/>
+
+            <Button
+                android:id="@+id/factorial"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="x!"
+                android:textAllCaps="false"
+                android:background="@drawable/pink_operation_button"
+                android:theme="@style/button_black2"/>
+
+            <Button
+                android:id="@+id/openParen"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="("
+                android:background="@drawable/pink_operation_button"
+                android:theme="@style/button_black2"/>
+
+
+            <Button
+                android:id="@+id/closeParen"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=")"
+                android:background="@drawable/pink_operation_button"
+                android:theme="@style/button_black2"/>
+
+
+            <Button
+                android:id="@+id/percentage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="%"
+                android:background="@drawable/pink_operation_button"
+                android:theme="@style/button_black2"/>
+
+            <Button
+                android:id="@+id/delete"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="DEL"
+                android:background="@drawable/pink_operation_button"
+                android:theme="@style/button_black2" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <ToggleButton
+                android:id="@+id/inverse"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textOn="INV"
+                android:textOff="inv"
+                android:background="@drawable/pink_operation_button"
+                android:theme="@style/button_black2"/>
+
+
+            <Button
+                android:id="@+id/sine"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="sin"
+                android:textAllCaps="false"
+                android:background="@drawable/pink_operation_button"
+                android:theme="@style/button_black2"/>
+
+
+            <Button
+                android:id="@+id/ln"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="ln"
+                android:textAllCaps="false"
+                android:background="@drawable/pink_operation_button"
+                android:theme="@style/button_black2"/>
+
+            <Button
+                android:id="@+id/seven"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="7"
+                android:background="@drawable/green_number_button"
+                android:theme="@style/button_black2"/>
+
+
+            <Button
+                android:id="@+id/eight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="8"
+                android:background="@drawable/green_number_button"
+                android:theme="@style/button_black2"/>
+
+
+            <Button
+                android:id="@+id/nine"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="9"
+                android:background="@drawable/green_number_button"
+                android:theme="@style/button_black2"/>
+
+
+            <Button
+                android:id="@+id/divide"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="÷"
+                android:background="@drawable/pink_operation_button"
+                android:theme="@style/button_black2"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <Button
+                android:id="@+id/pi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="π"
+                android:textAllCaps="false"
+                android:background="@drawable/pink_operation_button"
+                android:theme="@style/button_black2"
+                />
+
+
+            <Button
+                android:id="@+id/cosine"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="cos"
+                android:textAllCaps="false"
+                android:background="@drawable/pink_operation_button"
+                android:theme="@style/button_black2"/>
+
+
+            <Button
+                android:id="@+id/log"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="log"
+                android:textAllCaps="false"
+                android:background="@drawable/pink_operation_button"
+                android:theme="@style/button_black2"/>
+
+            <Button
+                android:id="@+id/four"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="4"
+                android:background="@drawable/green_number_button"
+                android:theme="@style/button_black2"/>
+
+
+            <Button
+                android:id="@+id/five"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="5"
+                android:background="@drawable/green_number_button"
+                android:theme="@style/button_black2"/>
+
+
+            <Button
+                android:id="@+id/six"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="6"
+                android:background="@drawable/green_number_button"
+                android:theme="@style/button_black2"/>
+
+
+            <Button
+                android:id="@+id/multiply"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="×"
+                android:background="@drawable/pink_operation_button"
+                android:theme="@style/button_black2"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            >
+
+            <Button
+                android:id="@+id/e"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="e"
+                android:textAllCaps="false"
+                android:background="@drawable/pink_operation_button"
+                android:theme="@style/button_black2"/>
+
+
+            <Button
+                android:id="@+id/tangent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="tan"
+                android:textAllCaps="false"
+                android:background="@drawable/pink_operation_button"
+                android:theme="@style/button_black2"/>
+
+
+            <Button
+                android:id="@+id/sqrt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="√"
+                android:textAllCaps="false"
+                android:background="@drawable/pink_operation_button"
+                android:theme="@style/button_black2"/>
+
+            <Button
+                android:id="@+id/one"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1"
+                android:background="@drawable/green_number_button"
+                android:theme="@style/button_black2"/>
+
+
+            <Button
+                android:id="@+id/two"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2"
+                android:background="@drawable/green_number_button"
+                android:theme="@style/button_black2"/>
+
+
+            <Button
+                android:id="@+id/three"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="3"
+                android:background="@drawable/green_number_button"
+                android:theme="@style/button_black2"/>
+
+
+            <Button
+                android:id="@+id/subtract"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="-"
+                android:background="@drawable/pink_operation_button"
+                android:theme="@style/button_black2"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:maxWidth="50dp"
+                android:maxHeight="50dp"
+                android:scaleType="fitCenter"
+                android:layout_marginLeft="19dp"
+                android:layout_marginRight="19dp"
+                android:src="@drawable/bluepaw"/>
+
+            <Button
+                android:id="@+id/ans"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="ANS"
+                android:background="@drawable/pink_operation_button"
+                android:theme="@style/button_black2"/>
+
+            <Button
+                android:id="@+id/exp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="x^y"
+                android:textAllCaps="false"
+                android:background="@drawable/pink_operation_button"
+                android:theme="@style/button_black2"/>
+
+            <Button
+                android:id="@+id/point"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="."
+                android:background="@drawable/pink_operation_button"
+                android:theme="@style/button_black2"/>
+
+            <Button
+                android:id="@+id/zero"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="0"
+                android:background="@drawable/green_number_button"
+                android:theme="@style/button_black2"/>
+
+            <Button
+                android:id="@+id/equals"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="="
+                android:background="@drawable/pink_operation_button"
+                android:theme="@style/button_black2"/>
+
+            <Button
+                android:id="@+id/add"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="+"
+                android:background="@drawable/pink_operation_button"
+                android:theme="@style/button_black2"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

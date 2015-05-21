@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/Hoshiko/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.1.1/support-annotations-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
+        <dex dex="/Users/Hoshiko/Desktop/Calculator1/app/build/intermediates/pre-dexed/debug/support-annotations-22.1.1-21dd67bb1ed4c894bb9c2710025869373a11db9a.jar" />
+    </item>
+    <item
+        jar="/Users/Hoshiko/Desktop/Calculator1/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
+        <dex dex="/Users/Hoshiko/Desktop/Calculator1/app/build/intermediates/pre-dexed/debug/classes-0e5ce7b9d02802a6282d878af4c06951753a72b8.jar" />
+    </item>
+    <item
+        jar="/Users/Hoshiko/Desktop/Calculator1/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
+        <dex dex="/Users/Hoshiko/Desktop/Calculator1/app/build/intermediates/pre-dexed/debug/classes-47848e13cb69e5d5784dd2f0c2e7706ca7ceac53.jar" />
+    </item>
+    <item
+        jar="/Users/Hoshiko/Desktop/Calculator1/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/libs/internal_impl-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="/Users/Hoshiko/Desktop/Calculator1/app/build/intermediates/pre-dexed/debug/internal_impl-22.1.1-b4fc7018c1a0287d6ac46b322074e1f0f266c637.jar" />
+    </item>
+    <item
+        jar="/Users/Hoshiko/.gradle/caches/modules-2/files-2.1/com.fathzer/javaluator/3.0.0/ce994b915caa3ce1994be5a20ee77e980c77a85a/javaluator-3.0.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ce994b915caa3ce1994be5a20ee77e980c77a85a">
+        <dex dex="/Users/Hoshiko/Desktop/Calculator1/app/build/intermediates/pre-dexed/debug/javaluator-3.0.0-608ae5fa4587c341c5bf764e575bd8b049de3c74.jar" />
+    </item>
+
+</items>

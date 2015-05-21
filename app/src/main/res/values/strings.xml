@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="action_settings">Settings</string>
+    <string name="zero_start">0</string>
+    <string name="AC">AC</string>
+    <string name="open_parenthesis">(</string>
+    <string name="closed_parenthesis">)</string>
+    <string name="division">/</string>
+    <string name="button_per_cent">%</string>
+    <string name="multiplication">*</string>
+    <string name="subtraction">-</string>
+    <string name="sum">+</string>
+    <string name="equal">=</string>
+
+    <string name="sin">sin</string>
+    <string name="cos">cos</string>
+    <string name="tan">tan</string>
+
+    <string name="ln">LN</string>
+    <string name="log">LOG</string>
+    <string name="one_division_x">1/x</string>
+    <string name="abs">|</string>
+    <string name="y_pow_x">y^x</string>
+    <string name="PI">PI</string>
+    <string name="E">E</string>
+    <string name="e_pow_x">e^x</string>
+
+    <string name="b1">1</string>
+    <string name="b2">2</string>
+    <string name="b3">3</string>
+    <string name="b4">4</string>
+    <string name="b5">5</string>
+    <string name="b6">6</string>
+    <string name="b7">7</string>
+    <string name="b8">8</string>
+    <string name="b9">9</string>
+    <string name="b0">0</string>
+    <string name="bDot">.</string>
+    <string name="happy_button">Happy</string>
+
+    <string name="action_change_theme_dark">Fonts to white</string>
+    <string name="action_change_theme_light">Fonts to black</string>
+    <string name="action_change_background_red">Background to red</string>
+    <string name="action_change_background_green">Background to green</string>
+    <string name="action_change_background_blue">Background to blue</string>
+    <string name="action_change_background_yellow">Background to yellow</string>
+    <string name="action_font_change">Fonts 1</string>
+    <string name="action_font_change2">Fonts 2</string>
+    <string name="setting">Customize</string>
+    <string name="action_font_change3">Fonts 3</string>
+    <string name="action_change_reset">Reset</string>
+    <item name="action_change_reset" type="id">Reset</item>
+</resources>

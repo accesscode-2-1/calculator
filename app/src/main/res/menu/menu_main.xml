@@ -1,0 +1,85 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <item
+        android:orderInCategory="1"
+        android:title="@string/setting"
+        app:showAsAction="always">
+
+        <menu>
+
+
+
+            <item
+                android:id="@+id/action_change_background_red"
+                android:orderInCategory="15"
+                android:title="@string/action_change_background_red"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/action_change_background_green"
+                android:orderInCategory="20"
+                android:title="@string/action_change_background_green"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/action_change_background_yellow"
+                android:orderInCategory="25"
+                android:title="@string/action_change_background_yellow"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/action_change_background_blue"
+                android:orderInCategory="30"
+                android:title="@string/action_change_background_blue"
+                app:showAsAction="never" />
+
+
+            <item
+                android:id="@+id/action_font_change"
+                android:orderInCategory="40"
+                android:title="@string/action_font_change"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/action_font_change2"
+                android:orderInCategory="45"
+                android:title="@string/action_font_change2"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/action_font_change3"
+                android:orderInCategory="50"
+                android:title="@string/action_font_change3"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/action_change_theme_dark"
+                android:orderInCategory="55"
+                android:title="@string/action_change_theme_dark"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/action_change_theme_light"
+                android:orderInCategory="60"
+                android:title="@string/action_change_theme_light"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/action_change_reset"
+                android:orderInCategory="65"
+                android:title="@string/action_change_reset"
+                app:showAsAction="never" />
+
+
+        </menu>
+
+
+    </item>
+
+
+
+
+</menu>

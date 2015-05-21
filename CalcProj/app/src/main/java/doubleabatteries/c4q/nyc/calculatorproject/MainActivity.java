@@ -62,7 +62,7 @@ public class MainActivity extends ActionBarActivity {
 
             @Override
             public void onClick(View view) {
-                enterClear(enterPressed);
+//                enterClear(enterPressed);
                 textview.append("7");
             }
         });
@@ -70,7 +70,7 @@ public class MainActivity extends ActionBarActivity {
         button8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                enterClear(enterPressed);
+//                enterClear(enterPressed);
                 textview.append("8");
             }
         });
@@ -86,7 +86,7 @@ public class MainActivity extends ActionBarActivity {
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                enterClear(enterPressed);
+//                enterClear(enterPressed);
                 textview.append("4");
             }
         });
@@ -95,7 +95,7 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View view) {
                 int id = view.getId();
-                enterClear(enterPressed);
+//                enterClear(enterPressed);
                 textview.append("5");
             }
         });
@@ -103,7 +103,7 @@ public class MainActivity extends ActionBarActivity {
         button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                enterClear(enterPressed);
+//                enterClear(enterPressed);
                 textview.append("6");
             }
         });
@@ -111,7 +111,7 @@ public class MainActivity extends ActionBarActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                enterClear(enterPressed);
+//                enterClear(enterPressed);
                 textview.append("1");
             }
         });
@@ -119,7 +119,7 @@ public class MainActivity extends ActionBarActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                enterClear(enterPressed);
+//                enterClear(enterPressed);
                 textview.append("2");
             }
         });
@@ -127,7 +127,7 @@ public class MainActivity extends ActionBarActivity {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                enterClear(enterPressed);
+//                enterClear(enterPressed);
                 textview.append("3");
             }
         });
@@ -181,7 +181,7 @@ public class MainActivity extends ActionBarActivity {
         button0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                enterClear(enterPressed);
+//                enterClear(enterPressed);
                 textview.append("0");
             }
         });
@@ -206,18 +206,22 @@ public class MainActivity extends ActionBarActivity {
                 textview.setText("");
             }
         });
+
+
         Button buttonAdd = (Button) findViewById(R.id.add);
         buttonAdd.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View view) {
-                enterClear(enterPressed);
+//                enterClear(enterPressed);
 
                 if (textview.getText().equals("")) {
                     textview.setText(ans+ "+");
+
                 } else if (!isOperator(textview.getText().toString())){
                     textview.append("+");
+
                 }
 
 
@@ -227,9 +231,10 @@ public class MainActivity extends ActionBarActivity {
         buttonSubtract.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                enterClear(enterPressed);
+//                enterClear(enterPressed);
                 if (textview.getText().equals("")) {
                     textview.setText(ans+ "-");
+
                 } else if (!isOperator(textview.getText().toString())){
                     textview.append("-");
                 }
@@ -272,12 +277,12 @@ public class MainActivity extends ActionBarActivity {
         buttonMultiply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                enterClear(enterPressed);
+//                enterClear(enterPressed);
 
                 if (textview.getText().equals("")) {
                     textview.setText(ans+ "*");
-                } else if (!isOperator(textview.getText().toString())){
 
+                } else if (!isOperator(textview.getText().toString())){
                     textview.append("*");
                 }
 
@@ -287,10 +292,11 @@ public class MainActivity extends ActionBarActivity {
         buttonDivide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                enterClear(enterPressed);
+//                enterClear(enterPressed);
 
                 if (textview.getText().equals("")) {
                     textview.setText(ans+ "/");
+
                 } else if (!isOperator(textview.getText().toString())){
                     textview.append("/");
                 }

@@ -23,9 +23,7 @@
                 android:textAlignment="viewStart"
                 android:textColor="#f9ad95"
                 android:layout_gravity="start"
-                android:scrollbarAlwaysDrawVerticalTrack="true"
                 android:layout_margin="5dp"
-                android:freezesText="true"
                 android:id="@+id/previousView"/>
 
 

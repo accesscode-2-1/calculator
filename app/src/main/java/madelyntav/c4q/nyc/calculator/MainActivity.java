@@ -107,18 +107,30 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void factorial(View v) {
-        int num = Integer.parseInt(calcScreen.getText().toString());
-        String result1 = "";
-        for (int i = num; i > 1; i--) {
-            num--;
-            if (i > 2) {
-                result1 += num + "*";
-            } else result1 += num;
-        }
-        toBeEvaluated += result1;
-        showOnScreen=result1;
+        try {
+            int num = Integer.parseInt(calcScreen.getText().toString());
+            String result1 = "";
 
-        calcScreen.setText(showOnScreen);
+            for (int i = num; i > 1; i--) {
+                num--;
+                if (i > 2) {
+                    result1 += num + "*";
+                } else result1 += num;
+            }
+            toBeEvaluated += toBeEvaluated + "*" + result1;
+            showOnScreen = result1;
+            showOnScreen = toBeEvaluated;
+
+            Expressions expressions = new Expressions(showOnScreen);
+            BigDecimal result = new BigDecimal(String.valueOf(expressions.eval()));
+            showOnScreen = result.toPlainString();
+            if (showOnScreen.equals("0")){
+                calcScreen.setText("Invalid oper.");
+            } else
+            calcScreen.setText(showOnScreen);
+        }catch (NumberFormatException e){
+            calcScreen.setText("Only google can factor that");
+        }
 
     }
 
@@ -142,9 +154,6 @@ public class MainActivity extends ActionBarActivity {
         } else
             toBeEvaluated = button.getText() + "(" + toBeEvaluated + ")";
 
-        showOnScreen = toBeEvaluated;
-
-        calcS.setText(showOnScreen);
     }
 
     public void positiveNegativeSwitch(View v) {
@@ -190,17 +199,21 @@ public class MainActivity extends ActionBarActivity {
 
         //Saves current state of the expressions' answer to a variable one can reuse
 
-        if ((calcScreen.getText() != "") && ans == "") {
-            Expressions expressions = new Expressions(calcScreen.getText().toString());
-            BigDecimal res = new BigDecimal(String.valueOf(expressions.eval()));
-            ans = ((res.toPlainString()));
-            ansview.setText(ans);
-        } else if (ans != "") {
-            toBeEvaluated += ans;
-            calcScreen.setText(toBeEvaluated);
-        } else if (ans == "" && calcScreen.getText() == "") {
-            calcScreen.setText("");
-            ansview.setText("");
+        try {
+            if ((calcScreen.getText() != "") && ans == "") {
+                Expressions expressions = new Expressions(calcScreen.getText().toString());
+                BigDecimal res = new BigDecimal(String.valueOf(expressions.eval()));
+                ans = ((res.toPlainString()));
+                ansview.setText(ans);
+            } else if (ans != "") {
+                toBeEvaluated += ans;
+                calcScreen.setText(toBeEvaluated);
+            } else if (ans == "" && calcScreen.getText() == "") {
+                calcScreen.setText("");
+                ansview.setText("");
+            }
+        }catch (RuntimeException e){
+            calcScreen.setText("Unquantifiable operation, Clear.");
         }
     }
 

@@ -161,7 +161,10 @@
         android:layout_alignParentStart="true"
         android:layout_toStartOf="@+id/overNums"
         android:layout_alignParentTop="true"
-        android:layout_above="@+id/answer" />
+        android:layout_above="@+id/answer"
+        android:nestedScrollingEnabled="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
 
     <GridLayout
         android:layout_width="wrap_content"
@@ -294,7 +297,11 @@
         android:background="@drawable/customborderpurple"
         android:layout_above="@+id/gridLayout2"
         android:layout_alignEnd="@+id/times"
-        android:layout_toEndOf="@+id/cansbutton" />
+        android:layout_toEndOf="@+id/cansbutton"
+        android:nestedScrollingEnabled="true"
+        android:enabled="false"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -437,8 +444,8 @@
         android:id="@+id/factorial"
         android:background="#96ffffff"
         android:nestedScrollingEnabled="false"
-        android:layout_below="@+id/divide"
-        android:layout_toStartOf="@+id/divide" />
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/percentage" />
 
     <Button
         style="?android:attr/buttonStyleSmall"

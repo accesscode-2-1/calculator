@@ -218,29 +218,5 @@ public class MainActivity extends Activity implements View.OnClickListener {
         outputField.setText(calc.getCurrentDisplay());
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d("STUFF", "Paused, is it saving the display?");
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
-        super.onSaveInstanceState(outState, outPersistentState);
-        outState.putString("Display", calc.getCurrentDisplay());
-        Log.d("STUFF", "is it saving the display?");
-
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        outputField.setText(savedInstanceState.getString("Display"));
-        Log.d("STUFF", "is it restoring the display?");
-    }
-
-
-
-
 }
 

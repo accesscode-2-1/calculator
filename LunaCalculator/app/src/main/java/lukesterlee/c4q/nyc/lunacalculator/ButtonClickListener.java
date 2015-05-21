@@ -615,6 +615,10 @@ public class ButtonClickListener implements View.OnClickListener {
 
                     } else if (Character.isDigit(thirdToLast.charAt(0)) && secondToLast.equals("-")) {
                         expression.push(thirdToLast + "*(1-" + last + "*0.01)");
+                    } else if (Character.isDigit(thirdToLast.charAt(0)) && secondToLast.equals("*")) {
+                        expression.push(thirdToLast + "*" + last + "*0.01");
+                    } else if (Character.isDigit(thirdToLast.charAt(0)) && secondToLast.equals("/")) {
+                        expression.push(thirdToLast + "/" + "(" + last + "*0.01)");
                     }
                 } else {
                     expression.push("*");

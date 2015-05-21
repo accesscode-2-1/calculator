@@ -44,6 +44,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         //Allows horizontal scrolling on textView
         //outputField.setMovementMethod(new ScrollingMovementMethod());
 
+        if(savedInstanceState != null){
+           outputField.setText(savedInstanceState.getString("Display"));
+        }
+
         if( btnFactorial == null){
             settingOnclickersForStanard();
         }else{
@@ -218,5 +222,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
         outputField.setText(calc.getCurrentDisplay());
     }
 
+
+@Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+        outState.putString("Display", calc.getCurrentDisplay());
+        Log.d("STUFF", "is it saving the display?");
+
+    }
+    
 }
 

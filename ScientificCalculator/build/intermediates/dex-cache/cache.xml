@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/pooja/IdeaProjects/ScientificCalculator/app/libs/arity-2.1.7.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0f18d61454ae0a470a89409bda8de2472455073f">
+        <dex dex="/Users/pooja/IdeaProjects/ScientificCalculator/app/build/intermediates/pre-dexed/debug/arity-2.1.7-5eef7ffa8a723064ac426d22d4be0316da7b09b5.jar" />
+    </item>
+    <item
+        jar="/Users/pooja/IdeaProjects/ScientificCalculator/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
+        <dex dex="/Users/pooja/IdeaProjects/ScientificCalculator/app/build/intermediates/pre-dexed/debug/classes-982ee0b7dfc8ca658901ef349d2ac19ead3d8196.jar" />
+    </item>
+    <item
+        jar="/Users/pooja/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.1.1/support-annotations-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
+        <dex dex="/Users/pooja/IdeaProjects/ScientificCalculator/app/build/intermediates/pre-dexed/debug/support-annotations-22.1.1-e588f624387ee8467da0e763ee94da9c3a9faa11.jar" />
+    </item>
+    <item
+        jar="/Users/pooja/.gradle/caches/modules-2/files-2.1/com.fathzer/javaluator/3.0.0/ce994b915caa3ce1994be5a20ee77e980c77a85a/javaluator-3.0.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ce994b915caa3ce1994be5a20ee77e980c77a85a">
+        <dex dex="/Users/pooja/IdeaProjects/ScientificCalculator/app/build/intermediates/pre-dexed/debug/javaluator-3.0.0-982f55bed410729558cdde5c1a5a46e2acc074d7.jar" />
+    </item>
+    <item
+        jar="/Users/pooja/IdeaProjects/ScientificCalculator/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
+        <dex dex="/Users/pooja/IdeaProjects/ScientificCalculator/app/build/intermediates/pre-dexed/debug/classes-ad4fc7f4e1ba90a6b16ad404dc711fcb62086975.jar" />
+    </item>
+    <item
+        jar="/Users/pooja/IdeaProjects/ScientificCalculator/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/libs/internal_impl-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="/Users/pooja/IdeaProjects/ScientificCalculator/app/build/intermediates/pre-dexed/debug/internal_impl-22.1.1-c04c5eae63ab9bc237ae1d46e2a8df3b63028d81.jar" />
+    </item>
+
+</items>

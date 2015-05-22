@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class MainActivity extends ActionBarActivity {
 
     Expression expression;
-//    boolean isRadian;
+    boolean isRadian = false;
 
     boolean enterPressed = false;
     String ans = "";
@@ -404,14 +404,27 @@ public class MainActivity extends ActionBarActivity {
             buttonInverse.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    buttonSin.setText("sin^-1");
-                    buttonLn.setText("e^");
-                    buttonCos.setText("ros^-1");
-                    buttonLog.setText("10^x");
-                    buttonTan.setText("ran^-1");
-                    buttonSquareRoot.setText("x^2");
-                    buttonAns.setText("rnd");
-                    buttonExponent.setText("y√x");
+                    if(!isRadian) {
+                        buttonSin.setText("sin^-1");
+                        buttonLn.setText("e^");
+                        buttonCos.setText("cos^-1");
+                        buttonLog.setText("10^x");
+                        buttonTan.setText("tan^-1");
+                        buttonSquareRoot.setText("x^2");
+                        buttonAns.setText("rnd");
+                        buttonExponent.setText("y√x");
+                        isRadian = true;
+                    }else{
+                        buttonSin.setText("sin");
+                        buttonLn.setText("ln");
+                        buttonCos.setText("cos");
+                        buttonLog.setText("log");
+                        buttonTan.setText("tan");
+                        buttonSquareRoot.setText("√");
+                        buttonAns.setText("ans");
+                        buttonExponent.setText("x^y");
+                        isRadian = false;
+                    }
                 }
             });
         }

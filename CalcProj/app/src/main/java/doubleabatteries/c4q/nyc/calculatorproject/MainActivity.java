@@ -163,11 +163,9 @@ public class MainActivity extends ActionBarActivity {
 
                 }
                 if(shouldClose){
-                    enterClear(enterPressed);
                     textview.append(")");
                     parenOpenCount--;
                 }else{
-                    enterClear(enterPressed);
                     textview.append("(");
                     parenOpenCount++;
                 }

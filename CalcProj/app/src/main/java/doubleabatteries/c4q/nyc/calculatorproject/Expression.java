@@ -815,6 +815,7 @@ package doubleabatteries.c4q.nyc.calculatorproject;
                 }
             });
 
+
             variables.put("π", PI);
             variables.put("e", E);
             variables.put("TRUE", BigDecimal.ONE);

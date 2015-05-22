@@ -1,4 +1,5 @@
 package doubleabatteries.c4q.nyc.calculatorproject;
+import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -191,9 +192,11 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View view) {
                 enterClear(enterPressed);
                 String text = textview.getText().toString();
-                if(text.equals("")){
+                if (text.equals("")) {
                     textview.append("0.");
-                }else if(!isOperator(text) && !(text.charAt(text.length() - 1) == '.'))
+                }else if(text.equals(!isOperator(text.charAt(text.length()-1)) && !(text.charAt(text.length() - 1) == '.') && !isNumber(text.charAt(text.length() - 1)))){
+                    textview.append("0.");
+                }else if(!isOperator(text) && !(text.charAt(text.length() - 1) == '.') && isNumber(text.charAt(text.length() - 1)))
                     textview.append(".");
             }
         });
@@ -267,11 +270,13 @@ public class MainActivity extends ActionBarActivity {
                         parenOpenCount--;
                     }else if(lastChar == ')'){
                         parenOpenCount++;
-                    }
+                    }else
                     textview.setText(textview.getText().toString().substring(0, textview.getText().toString().length() - 1));
                 }
             }
         });
+
+        
         Button buttonMultiply = (Button) findViewById(R.id.multiply);
         buttonMultiply.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -328,6 +333,7 @@ public class MainActivity extends ActionBarActivity {
                         prevView.append(answer.toPlainString() + "\n");
                         textview.setText(answer.toPlainString());
                         ans = answer.toPlainString();
+                        parenOpenCount = 0;
                         enterPressed = true;
                     } catch (RuntimeException e){
                         textview.setText("ERROR" + "   ");
@@ -391,7 +397,7 @@ public class MainActivity extends ActionBarActivity {
                     String text = textview.getText().toString();
                     if(text.equals("")){
 
-                    }else if(!isOperator(text)){
+                    }else if(isNumber(text.charAt(text.length()-1))){
                         textview.append("!");
                     }
                 }
@@ -404,6 +410,14 @@ public class MainActivity extends ActionBarActivity {
                 @Override
                 public void onClick(View view) {
                     if(!isRadian) {
+                        buttonSin.setBackgroundColor(Color.LTGRAY);
+                        buttonCos.setBackgroundColor(Color.LTGRAY);
+                        buttonLn.setBackgroundColor(Color.LTGRAY);
+                        buttonLog.setBackgroundColor(Color.LTGRAY);
+                        buttonTan.setBackgroundColor(Color.LTGRAY);
+                        buttonSquareRoot.setBackgroundColor(Color.LTGRAY);
+                        buttonAns.setBackgroundColor(Color.LTGRAY);
+                        buttonExponent.setBackgroundColor(Color.LTGRAY);
                         buttonSin.setText("sin^-1");
                         buttonLn.setText("e^");
                         buttonCos.setText("cos^-1");
@@ -414,6 +428,14 @@ public class MainActivity extends ActionBarActivity {
                         buttonExponent.setText("y√x");
                         isRadian = true;
                     }else{
+                        buttonSin.setBackgroundColor(Color.GRAY);
+                        buttonCos.setBackgroundColor(Color.GRAY);
+                        buttonLn.setBackgroundColor(Color.GRAY);
+                        buttonLog.setBackgroundColor(Color.GRAY);
+                        buttonTan.setBackgroundColor(Color.GRAY);
+                        buttonSquareRoot.setBackgroundColor(Color.GRAY);
+                        buttonAns.setBackgroundColor(Color.GRAY);
+                        buttonExponent.setBackgroundColor(Color.GRAY);
                         buttonSin.setText("sin");
                         buttonLn.setText("ln");
                         buttonCos.setText("cos");
@@ -435,12 +457,12 @@ public class MainActivity extends ActionBarActivity {
                 public void onClick(View view) {
                     enterClear(enterPressed);
                     if (buttonSin.getText().toString().equalsIgnoreCase("sin")) {
-                        if (isOperator(textview.getText().toString()) || textview.getText().toString().length() - 1 == '(') {
+                        if (isOperator(textview.getText().toString()) || textview.getText().toString().charAt(textview.getText().toString().length() - 1) == '(') {
                             parenOpenCount++;
                             textview.append("sin(");
                         }
                     } else if (buttonSin.getText().toString().equalsIgnoreCase("sin^-1")) {
-                        if (isOperator(textview.getText().toString()) || textview.getText().toString().length() - 1 == '(') {
+                        if (isOperator(textview.getText().toString()) || textview.getText().toString().charAt(textview.getText().toString().length() - 1) == '(') {
                             parenOpenCount++;
                             textview.append("asin(");
                         }
@@ -456,7 +478,7 @@ public class MainActivity extends ActionBarActivity {
                 public void onClick(View view) {
                     enterClear(enterPressed);
 
-                    if (buttonLn.getText().toString().equalsIgnoreCase("ln")  || textview.getText().toString().length() - 1 == '(') {
+                    if (buttonLn.getText().toString().equalsIgnoreCase("ln")  || textview.getText().toString().charAt(textview.getText().toString().length() - 1) == '(') {
                         if (isOperator(textview.getText().toString())) {
                             parenOpenCount++;
                             textview.append("log(");
@@ -493,13 +515,13 @@ public class MainActivity extends ActionBarActivity {
                 public void onClick(View view) {
                     enterClear(enterPressed);
 
-                    if (buttonCos.getText().toString().equalsIgnoreCase("cos") || textview.getText().toString().length() - 1 == '(') {
+                    if (buttonCos.getText().toString().equalsIgnoreCase("cos") || textview.getText().toString().charAt(textview.getText().toString().length() - 1) == '(') {
                         if (isOperator(textview.getText().toString())) {
                             parenOpenCount++;
                             textview.append("cos(");
                         }
-                    } else if (buttonCos.getText().toString().equalsIgnoreCase("cos^-1")  || textview.getText().toString().length() - 1 == '(') {
-                        if (isOperator(textview.getText().toString()) || textview.getText().toString().length() - 1 == '(') {
+                    } else if (buttonCos.getText().toString().equalsIgnoreCase("cos^-1")  || textview.getText().toString().charAt(textview.getText().toString().length() - 1) == '(') {
+                        if (isOperator(textview.getText().toString()) || textview.getText().toString().charAt(textview.getText().toString().length() - 1) == '(') {
                             parenOpenCount++;
                             textview.append("acos(");
                         }
@@ -517,12 +539,12 @@ public class MainActivity extends ActionBarActivity {
                     enterClear(enterPressed);
 
                     if (buttonLog.getText().toString().equalsIgnoreCase("log")) {
-                        if (isOperator(textview.getText().toString()) || textview.getText().toString().length() - 1 == '(') {
+                        if (isOperator(textview.getText().toString()) || textview.getText().toString().charAt(textview.getText().toString().length() - 1) == '(') {
                             parenOpenCount++;
                             textview.append("log10(");
                         }
                     } else if (buttonLog.getText().toString().equalsIgnoreCase("10^")) {
-                        if (isOperator(textview.getText().toString()) || textview.getText().toString().length() - 1 == '(') {
+                        if (isOperator(textview.getText().toString()) || textview.getText().toString().charAt(textview.getText().toString().length() - 1) == '(') {
                             parenOpenCount++;
                             textview.append("10^(");
                         }
@@ -538,7 +560,7 @@ public class MainActivity extends ActionBarActivity {
                 @Override
                 public void onClick(View view) {
                     enterClear(enterPressed);
-                    if (isOperator(textview.getText().toString()) || textview.getText().toString().length() - 1 == '(') {
+                    if (isOperator(textview.getText().toString()) || textview.getText().toString().charAt(textview.getText().toString().length() - 1) == '(') {
                         textview.append("e");
                     }
 
@@ -554,12 +576,12 @@ public class MainActivity extends ActionBarActivity {
                     enterClear(enterPressed);
 
                     if (buttonTan.getText().toString().equalsIgnoreCase("tan")) {
-                        if (isOperator(textview.getText().toString()) || textview.getText().toString().length() - 1 == '(') {
+                        if (isOperator(textview.getText().toString()) || textview.getText().toString().charAt(textview.getText().toString().length() - 1) == '(') {
                             parenOpenCount++;
                             textview.append("tan(");
                         }
                     } else if (buttonTan.getText().toString().equalsIgnoreCase("tan^-1") ) {
-                        if (isOperator(textview.getText().toString()) || textview.getText().toString().length() - 1 == '(') {
+                        if (isOperator(textview.getText().toString()) || textview.getText().charAt(textview.getText().toString().length() - 1) == '(') {
                             parenOpenCount++;
                             textview.append("atan(");
                         }
@@ -577,7 +599,7 @@ public class MainActivity extends ActionBarActivity {
                     enterClear(enterPressed);
 
                     if (buttonSquareRoot.getText().toString().equalsIgnoreCase("√")) {
-                        if (isOperator(textview.getText().toString()) || textview.getText().toString().length() - 1 == '(') {
+                        if (isOperator(textview.getText().toString()) || textview.getText().toString().charAt(textview.getText().toString().length() - 1) == '(') {
                             parenOpenCount++;
                             textview.append("sqrt(");
                         }

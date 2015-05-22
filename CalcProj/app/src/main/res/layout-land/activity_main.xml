@@ -409,7 +409,7 @@
             android:textSize="40px"
             android:textAllCaps="false"
             android:background="@drawable/function_button"
-            android:text="Ans"/>
+            android:text="ans"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

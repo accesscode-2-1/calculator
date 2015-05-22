@@ -276,7 +276,7 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        
+
         Button buttonMultiply = (Button) findViewById(R.id.multiply);
         buttonMultiply.setOnClickListener(new View.OnClickListener() {
             @Override

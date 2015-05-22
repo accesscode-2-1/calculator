@@ -1,42 +1,12 @@
-# calculator
-Submit your calculator projects here
-
-
-
 # Luna Calculator
 
-#### 0. Save the data
-1. the previous answer can be tracked from "history" which on top of calculator. 
-
-
 #### 1. Awesome Error Handling
-1. disable 3++ , catch the error. 
-
 
 #### 2. Auto Closing
-1. if only input half "(", system will auto add the other half ")".
 
 #### 3. Try 50 + 30%
-1. this equals 50 + 50 * 30%, by google calculator function. 
 
-
-#### 4. EVAL Feature (Single variable function calculation)
-
-
-#### 5. DRAW Feature (with Zoom-out button)
-
-
-#### 6. CONVERTER Feature (Auto suggestion + send to calculator)
-1. convert between kg and lbs. 
-
-
-#### 7. Funny Error Message + Sound (4 different funny messages!)
-1. voice remind when there is error. 
-
-#### 8. Material Design Applied
-
-
-
+#### 4. 
 
 
 
@@ -146,7 +116,6 @@ factorial 0.45!
 negative
 
 optimize coding
-
 
 
 

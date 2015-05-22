@@ -10,7 +10,7 @@ Submit your calculator projects here
 
 
 #### 1. Awesome Error Handling
-
+1. disable 3++ , catch the error. 
 
 
 #### 2. Auto Closing

@@ -404,7 +404,6 @@ public class MainActivity extends ActionBarActivity {
             buttonInverse.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    enterClear(enterPressed);
                     buttonSin.setText("sin^-1");
                     buttonLn.setText("e^");
                     buttonCos.setText("ros^-1");
@@ -469,7 +468,7 @@ public class MainActivity extends ActionBarActivity {
                     String text = textview.getText().toString();
                     enterClear(enterPressed);
                     if (isOperator(textview.getText().toString()) || textview.getText().toString().charAt(text.length()-1) == '(') {
-                        textview.append("PI");
+                        textview.append("π");
                     }
                 }
             });
@@ -617,7 +616,7 @@ public class MainActivity extends ActionBarActivity {
             });
         }
 
-        final Button buttonExponent = (Button) findViewById(R.id.exponential);
+        buttonExponent = (Button) findViewById(R.id.exponential);
         if (buttonExponent != null) {
             buttonExponent.setOnClickListener(new View.OnClickListener() {
                 @Override

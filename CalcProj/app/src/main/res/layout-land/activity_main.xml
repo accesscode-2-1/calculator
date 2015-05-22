@@ -41,6 +41,8 @@
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:textStyle="bold"
+                android:scrollbarAlwaysDrawHorizontalTrack="true"
+                android:scrollHorizontally="true"
                 android:background="#FFF"
                 android:textColor="#FF7043"
                 android:gravity="start"/>
